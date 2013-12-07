@@ -9,7 +9,7 @@ public class Main {
 		display.CreateDisplay.frame();
 		System.out.println("Test");
 		
-		while(!Display.isCloseRequested()){ //game loop
+		while(!Display.isCloseRequested()) { 
 			gameLoop();
 		}
 		
