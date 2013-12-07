@@ -15,7 +15,6 @@
 *.dmg
 *.gz
 *.iso
-*.jar
 *.rar
 *.tar
 *.zip
@@ -39,4 +38,4 @@ Thumbs.db
 # Folders #
 ###########
 bin/
-lib/
+lwjgl-source-2.9.0/
