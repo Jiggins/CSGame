@@ -3,9 +3,13 @@ package main;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display; 
 
+import com.leapmotion.leap.Leap;
+
 public class Main {
+	public static Leap leap;
 
 	public static void main(String [] args) {
+		leap = new Leap();
 		display.CreateDisplay.frame();
 		System.out.println("Test");
 		
@@ -16,10 +20,10 @@ public class Main {
 		System.exit(0);
 	}
 	
+	
 	public static void gameLoop() {
-		if (Keyboard.isKeyDown(Keyboard.KEY_LEFT)) {
-			System.out.println("Left");
-		}
+//		leap.
+		
 	}
 
 }
