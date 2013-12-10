@@ -1,7 +1,6 @@
 package main;
 
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.opengl.Display; 
+import org.lwjgl.opengl.Display;
 
 import com.leapmotion.leap.Leap;
 
