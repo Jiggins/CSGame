@@ -1,0 +1,33 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"name": "source",
+			// "path": "/Users/Jack/Java/Game/CSGame/src"
+			"path": "$project_path/../../src"
+		},
+		{
+			"follow_symlinks": true,
+			"name": "Libraries",
+			"path": "$project_path/../../lib"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "$project_path/../../resources"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "$project_path/../../SublimeText"
+		}
+	],
+
+	"build_systems":
+	[
+		{
+			"name": "CSGame",
+			"working_dir": "$project_path/../../",
+			"cmd": ""
+		}
+	]
+}
