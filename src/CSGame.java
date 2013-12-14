@@ -14,7 +14,7 @@ public class CSGame {
 	}	
 	
 	public static void gameLoop() {
-//		TODO Add stuff here! 
+		Display.update();
 		System.out.println("Hi Niamh!");	
 	}
 }
