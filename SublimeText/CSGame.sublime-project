@@ -21,6 +21,19 @@
 			"path": "$project_path/../../resources"
 		},
 		{
+			"name": "Project",
+			"path": "$project_path/../../",
+			"folder_exclude_patterns":
+			[
+				"bin",
+				"src",
+				"lib",
+				"resources",
+				"SublimeText"
+
+			]
+		},
+		{
 			"follow_symlinks": true,
 			"path": "$project_path/../../SublimeText"
 		}
