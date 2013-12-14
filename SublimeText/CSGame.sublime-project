@@ -4,13 +4,17 @@
 		{
 			"follow_symlinks": true,
 			"name": "source",
-			// "path": "/Users/Jack/Java/Game/CSGame/src"
 			"path": "$project_path/../../src"
 		},
 		{
 			"follow_symlinks": true,
 			"name": "Libraries",
-			"path": "$project_path/../../lib"
+			"path": "$project_path/../../lib",
+			"file_exclude_patterns": 
+			[
+				"*.pyd",
+				"*.jnilib"
+			]
 		},
 		{
 			"follow_symlinks": true,
