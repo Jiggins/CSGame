@@ -26,8 +26,23 @@
 	[
 		{
 			"name": "CSGame",
-			"working_dir": "$project_path/../../",
-			"cmd": ""
+			"working_dir": "$project_path/../",
+			"cmd": ["sh", "SublimeText/LaunchGame.sh"],
+
+			"osx": 
+			{
+				"cmd": ["sh", "SublimeText/LaunchGame.sh"]
+			},
+
+			"linux":
+			{
+				"cmd": ["sh", "SublimeText/LaunchGame.sh"]
+			},
+
+			"windows":
+			{
+				"cmd": ["SublimeText/LaunchGame.bat"]
+			}
 		}
 	]
 }
