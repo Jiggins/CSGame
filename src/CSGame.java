@@ -1,6 +1,6 @@
 import org.lwjgl.opengl.Display;
 
-public class Main {
+public class CSGame {
 
 	public static void main(String [] args) {
 		display.CreateDisplay.frame();
