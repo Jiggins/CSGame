@@ -1,4 +1,3 @@
-
 package entity;
 
 public class Character extends Entity{
