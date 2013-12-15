@@ -7,7 +7,7 @@ public class Character extends Entity{
 		super(x, y);
 		
 		//TODO make images
-		//setTextureLocation(" ");	
+//		setTextureLocation(" ");	
 		}			
 		public void moveToLeft(){
 			if(x > 0){

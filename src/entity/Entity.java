@@ -48,11 +48,10 @@ public abstract class Entity {
 		this.y = newY;
 	}
 	
-	
 	public void loadTexture(){
 		if (this.getTextureLocation() == null) {
-			System.out.println("Missing Texture for " + this);
-			this.setTextureLocation("images/MissingTexture.png");
+			System.out.println("Missing Texture for " + this.getClass());
+			this.setTextureLocation("resources/MissingTexture.png");
 		}
 		
 		try {
@@ -65,7 +64,7 @@ public abstract class Entity {
 		}	
 	} 
 	
-public void render(){ 
+	public void render(){ 
 		
 		Color.white.bind();
 		texture.bind();
@@ -85,5 +84,32 @@ public void render(){
 		
 		GL11.glEnd();
 		
+	}
+	
+	/**
+	 * Renders the Entity on screen to the given size.
+	 * @param width, height 
+	 */
+	public void render(int width, int height) {
+		GL11.glClearColor(0f, 0f, 0f, 0f);
+		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
+
+		Color.white.bind();
+		texture.bind();
+
+
+		//create shape for image to sit on
+		GL11.glBegin(GL11.GL_QUADS);
+
+		GL11.glTexCoord2f(0,0);
+		GL11.glVertex2f(x,y);
+		GL11.glTexCoord2f(1,0);
+		GL11.glVertex2f(x+width,y);
+		GL11.glTexCoord2f(1,1);
+		GL11.glVertex2f(x+width,y+height);
+		GL11.glTexCoord2f(0,1);
+		GL11.glVertex2f(x,y+height);
+
+		GL11.glEnd();	
 	}
 }
