@@ -35,7 +35,7 @@ public abstract class Entity {
 		this.textureLocation = location;
 	}
 
-	public int getX(){ // hi!!!! this is never gonna work!!!
+	public int getX(){ 
 		return this.x;
 	}
 	
@@ -63,7 +63,7 @@ public abstract class Entity {
 			Display.destroy();
 			System.exit(0);
 		}	
-	} // ever!!!!!
+	} 
 	
 public void render(){ 
 		
