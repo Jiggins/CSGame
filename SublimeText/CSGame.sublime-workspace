@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"S",
+				"SublimeText"
+			],
+			[
+				"Le",
+				"LeapJava"
+			],
+			[
+				"j",
+				"jar"
+			],
+			[
+				"slick",
+				"slick-util"
+			],
+			[
 				"get",
 				"getTextureWidth"
 			],
@@ -264,10 +280,6 @@
 				"lampOn"
 			],
 			[
-				"S",
-				"SideOnly"
-			],
-			[
 				"coderdojo",
 				"coderdojo"
 			],
@@ -327,16 +339,55 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/Users/Jack/Java/Game/CSGame/.gitignore",
+			"settings":
+			{
+				"buffer_size": 527,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "\npackage entity;\n\npublic class Character extends Entity{\n	\n		\n		public Character(int x, int y) {\n		super(x, y);\n		\n		//TODO make images\n		//setTextureLocation(\" \");	\n		}			\n		public void moveToLeft(){\n			if(x > 0){\n				setPosition(this.x - 10, this.y);\n			}\n		}\n		\n		public void moveToRight(){\n			if(x < 640 - this.getTexture().getImageWidth()){\n				setPosition(this.x + 10, this.y);\n			}\n		}\n		\n		public void moveUp(){\n			if(y > 0){\n				setPosition(this.x, this.y - 10);\n			}\n		}\n		\n		public void moveDown(){\n			if(y < 480 - this.getTexture().getImageHeight()){\n				setPosition(this.x, this.y + 10);\n			}\n		}\n		\n\n	}\n",
+			"file": "/Users/Jack/Java/Game/CSGame/src/Entity/Character",
+			"file_size": 617,
+			"file_write_time": 130316181050000000,
+			"settings":
+			{
+				"buffer_size": 617,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/Jack/Java/Game/CSGame/src/Entity/Entity.java",
+			"settings":
+			{
+				"buffer_size": 1814,
+				"line_ending": "Unix"
+			}
+		}
 	],
-	"build_system": "",
+	"build_system": "CSGame",
 	"command_palette":
 	{
-		"height": 147.0,
+		"height": 167.0,
 		"selected_items":
 		[
 			[
 				"java",
 				"Set Syntax: Java"
+			],
+			[
+				"package",
+				"Package Control: Remove Package"
+			],
+			[
+				"javatar",
+				"Javatar: Builds..."
+			],
+			[
+				"shell",
+				"Set Syntax: Shell Script (Bash)"
 			],
 			[
 				"Java",
@@ -459,6 +510,21 @@
 	},
 	"file_history":
 	[
+		"/Users/Jack/Java/Game/CSGame/src/CSGame.java",
+		"/Users/Jack/Library/Application Support/Sublime Text 3/Packages/Javatar/Javatar.sublime-settings",
+		"/Users/Jack/Library/Application Support/Sublime Text 3/Packages/Javatar/README.md",
+		"/Users/Jack/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/Jack/Java/Game/CSGame/README.md",
+		"/Users/Jack/Java/Game/CSGame/SublimeText/LaunchGame.bat",
+		"/Users/Jack/Java/Game/CSGame/SublimeText/CSGame.sublime-project",
+		"/Users/Jack/Java/Game/CSGame/SublimeText/LaunchGame.sh",
+		"/Users/Jack/Java/Game/CSGame/src/main/Main.java",
+		"/Users/Jack/Java/Game/CSGame/src/Main.java",
+		"/Users/Jack/Java/Game/CSGame/src/com/leap/Sample.java",
+		"/Users/Jack/Java/Game/CSGame/src/com/leap/LeapStuff.java",
+		"/Users/Jack/Java/Game/CSGame/src/com/display/CreateDisplay.java",
+		"/Users/Jack/Java/Game/CSGame/src/com/main/Main.java",
+		"/Users/Jack/Desktop/.classpath",
 		"/Users/Jack/Java/Game/SimpleMovements/lib/jars/lwjgl-source-2.9.0/src/java/org/lwjgl/examples/spaceinvaders/Game.java",
 		"/Users/Jack/Java/Game/CSGame/.gitignore",
 		"/Users/Jack/Java/Game/SimpleMovements/SublimeText/Game.sublime-project",
@@ -466,7 +532,6 @@
 		"/Users/Jack/Java/Minecraft/Development/eclipse/ModJam/README.md",
 		"/Users/Jack/Java/Game/CardGame/lib/jars/lwjgl-source-2.9.0/src/java/org/lwjgl/input/Keyboard.java",
 		"/Users/Jack/Minecraft/Mods/InstallMods.py",
-		"/Users/Jack/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/Users/Jack/Java/Game/SimpleMovements/lib/jars/lwjgl-source-2.9.0/src/generated/org/lwjgl/opengl/GL11.java",
 		"/Users/Jack/Java/Game/SimpleMovements/lib/jars/lwjgl-source-2.9.0/src/java/org/lwjgl/opengl/Display.java",
 		"/Users/Jack/Java/Game/SimpleMovements/lib/jars/lwjgl-source-2.9.0/src/java/org/lwjgl/util/Display.java",
@@ -572,25 +637,11 @@
 		"/Users/Jack/Java/Minecraft/Development/forge/mcp/src/minecraft/coderdojo/config/ConfigHandler.java",
 		"/Users/Jack/Desktop/example/blocks/BlockInfo.java",
 		"/Users/Jack/Java/Minecraft/Development/forge/mcp/src/minecraft/coderdojo/blocks/BlockInfo.java",
-		"/Users/Jack/Java/Minecraft/Development/forge/mcp/src/minecraft/coderdojo/blocks/Blocks.java",
-		"/Users/Jack/Java/Minecraft/Development/forge/mcp/src/minecraft/coderdojo/CoderDojo.java",
-		"/Users/Jack/Java/Minecraft/Development/forge/mcp/src/minecraft/coderdojo/blocks/BlockLamp.java",
-		"/Users/Jack/Desktop/example/blocks/BlockMachine.java",
-		"/Users/Jack/Desktop/example/blocks/Blocks.java",
-		"/Users/Jack/Desktop/example/StevesExample.java",
-		"/Users/Jack/Java/Minecraft/Development/forge/mcp/src/minecraft/net/minecraftforge/common/Configuration.java",
-		"/Users/Jack/Java/Minecraft/Development/forge/mcp/src/minecraft/practice/items/ItemLamp.java",
-		"/Users/Jack/Java/Minecraft/Development/forge/mcp/src/minecraft/net/minecraftforge/fluids/Fluid.java",
-		"/Users/Jack/Java/Minecraft/Development/forge/mcp/src/minecraft/coderdojo/proxies/ClientProxy.java",
-		"/Users/Jack/Java/Minecraft/Development/forge/mcp/src/minecraft/coderdojo/proxies/CommonProxy.java",
-		"/Users/Jack/Java/Minecraft/Development/forge/mcp/src/minecraft/coderdojo/ModInformation.java",
-		"/Users/Jack/Java/Minecraft/Development/forge/mcp/src/minecraft/coderdojo/Week 1.txt",
-		"/Users/Jack/Java/Minecraft/Development/forge/mcp/src/minecraft/practice/config/ConfigHandler.java",
-		"/Users/Jack/Java/Minecraft/Development/forge/mcp/src/minecraft/practice/items/ItemInfo.java"
+		"/Users/Jack/Java/Minecraft/Development/forge/mcp/src/minecraft/coderdojo/blocks/Blocks.java"
 	],
 	"find":
 	{
-		"height": 35.0
+		"height": 26.0
 	},
 	"find_in_files":
 	{
@@ -618,6 +669,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"source",
+			"osx",
+			"bin",
+			"CSGame",
 			"getMonitor",
 			"println",
 			"/8",
@@ -763,8 +818,92 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/Users/Jack/Java/Game/CSGame/.gitignore",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 527,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								527,
+								527
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 395.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/Jack/Java/Game/CSGame/src/Entity/Character",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 617,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/Jack/Java/Game/CSGame/src/Entity/Entity.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1814,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								175,
+								175
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 81.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -801,7 +940,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 118.0
+		"height": 326.0
 	},
 	"project": "CSGame.sublime-project",
 	"replace":
@@ -815,6 +954,22 @@
 		"selected_items":
 		[
 			[
+				"ent",
+				"source/Entity/Entity.java"
+			],
+			[
+				"",
+				"Project/.gitignore"
+			],
+			[
+				"rea",
+				"Project/README.md"
+			],
+			[
+				"main",
+				"source/main/Main.java"
+			],
+			[
 				"classpath",
 				"Card Game/.classpath"
 			],
@@ -825,10 +980,6 @@
 			[
 				"gl11",
 				"lwjgl/src/generated/org/lwjgl/opengl/GL11.java"
-			],
-			[
-				"main",
-				"Card Game/main/Main.java"
 			],
 			[
 				"pla",
@@ -885,10 +1036,6 @@
 			[
 				"blocks.s",
 				"scalaMod/blocks/Blocks.scala"
-			],
-			[
-				"",
-				"coderdojo/CoderDojo.java"
 			],
 			[
 				"modcon",
@@ -1154,6 +1301,10 @@
 		"height": 500.0,
 		"selected_items":
 		[
+			[
+				"game",
+				"~/Java/Game/SimpleMovements/SublimeText/Game.sublime-project"
+			],
 			[
 				"",
 				"~/Java/Minecraft/Development/Sublime Text/Minecraft.sublime-project"
