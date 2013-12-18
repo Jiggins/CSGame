@@ -4,11 +4,11 @@ public class Character extends Entity{
 	
 		
 		public Character(int x, int y) {
-		super(x, y);
-		
+		super(x, y);	
 		//TODO make images
 //		setTextureLocation(" ");	
 		}			
+		
 		public void moveToLeft(){
 			if(x > 0){
 				setPosition(this.x - 10, this.y);
@@ -32,6 +32,11 @@ public class Character extends Entity{
 				setPosition(this.x, this.y + 10);
 			}
 		}
+		
+	    public void warpTo(int x, int y) {
+	        this.x = x;
+	        this.y = y;
+	    }
 		
 
 	}
