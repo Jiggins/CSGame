@@ -17,7 +17,7 @@ Running the game:
 	Tools -> Build System -> CSGame
 	Ctrl + B
 
-Team Name Ideas
-==========
+Todo List
+=========
 
-Whillikers
+Background - with exits/entrances
