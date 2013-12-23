@@ -12,8 +12,7 @@ public class ChangeBGround{
 	    
 	    
 	    public ChangeBGround(BGround in, BGround to) {
-	    	x = to.getDX(1);
-	    	y = to.getDY(1);
+	    	
 	    	background = to.getTexture();
 	    }
 	    
@@ -24,6 +23,8 @@ public class ChangeBGround{
 	    public void setBackground(Texture background){
 	    	this.background = background;
 	    }
+	    
+	    
 	    
 	    
 	    

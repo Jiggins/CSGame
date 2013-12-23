@@ -15,6 +15,7 @@ public class CSGame {
 
 	public static void main(String [] args) {
 		display.CreateDisplay.frame();
+		
 		System.out.println("Hi");
 		//Hello
 		
