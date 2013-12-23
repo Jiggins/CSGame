@@ -9,8 +9,8 @@ import entity.Character;
 
 public class CSGame {
 	private static Character test;
-	private static Controller controller = new Controller();
-	private static Frame currentFrame = new Frame();
+//	private static Controller controller = new Controller();
+//	private static Frame currentFrame = new Frame();
 	private static float x, y, x2, y2;
 	
 	//another text case
@@ -38,6 +38,7 @@ public class CSGame {
 	
 	public static void gameLoop() {
 		Display.update();
+		
 //		currentFrame = controller.frame();
 //		x = currentFrame.hands().leftmost().fingers().rightmost().tipPosition().getX() + 320;
 //		y = currentFrame.hands().leftmost().fingers().rightmost().tipPosition().getZ() + 240;
