@@ -17,7 +17,7 @@ public class BGround{
 	private Texture texture;
 	private String textureLocation;
 
-	public static final BGround lab3 = new BGround("resources/NUIMaynoothLogo.png");
+	public static final BGround lab3 = new BGround("resources/MissingTexture.png");
 	
 	public BGround(String textureLocation){
 		this.textureLocation = textureLocation;
