@@ -16,8 +16,10 @@ public class CreateDisplay {
 			
 			Display.setDisplayMode(new DisplayMode(640, 480));
 			Display.setTitle("CSGame");
-			Display.create();
+			Display.sync(60);
 			Display.setResizable(true);
+			Display.create();
+//			Display.setVSyncEnabled(true);
 		
 		
 		}catch(LWJGLException e){
