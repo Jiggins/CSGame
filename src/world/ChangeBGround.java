@@ -14,7 +14,7 @@ public class ChangeBGround{
 	    public ChangeBGround(BGround in, BGround to) {
 	    	x = to.getDX(1);
 	    	y = to.getDY(1);
-	    	//TODO have texture associated with background
+	    	background = to.getTexture();
 	    }
 	    
 	    public void onPlayerArrive(Character player) {
