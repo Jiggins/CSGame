@@ -21,8 +21,9 @@ public class BGround{
 		this.textureLocation = textureLocation;
 	}
 	
-	public void addDoor(int x, int y){
-		Door door  = new door(x, y);
+	public BGround addDoor(int x, int y){
+		Door door  = new Door(x, y);
+		return this;
 	}
 
 	public String getTextureLocation() {

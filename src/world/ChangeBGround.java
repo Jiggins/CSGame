@@ -6,23 +6,19 @@ import entity.Character;
 
 public class ChangeBGround{
 	    
-	    private int x;
-	    private int y;
-	    private Texture background;
-	    
-	    
-	    public ChangeBGround(BGround in, BGround to) {
-	    	
-	    	background = to.getTexture();
+	    private static int x;
+	    private static int y;
+	    private static BGround currentBackground;
+	    	    
+	    public void setBackground(BGround background) {
+	    	currentBackground = background;
+	    	currentBackground.render();
 	    }
-	    
+
 	    public void onPlayerArrive(Character player) {
 	        player.warpTo(x, y);       
 	    }
 	    
-	    public void setBackground(Texture background){
-	    	this.background = background;
-	    }
 	    
 	    
 	    
