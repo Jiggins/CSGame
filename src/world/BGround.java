@@ -21,6 +21,7 @@ public class BGround{
 	
 	public BGround(String textureLocation){
 		this.textureLocation = textureLocation;
+		this.loadTexture();
 	}
 	
 	public BGround addDoor(int x, int y){
@@ -36,7 +37,7 @@ public class BGround{
 		this.textureLocation = textureLocation;
 	}
 
-	public void loadTexture(){
+	public BGround loadTexture(){
 		if (this.getTextureLocation() == null) {
 			System.out.println("Missing Texture for " + this.getClass());
 			this.setTextureLocation("resources/MissingTexture.png");
@@ -49,7 +50,8 @@ public class BGround{
 			e.printStackTrace();
 			Display.destroy();
 			System.exit(0);
-		}	
+		}
+		return this;
 	}
 
 	public void render(){ 

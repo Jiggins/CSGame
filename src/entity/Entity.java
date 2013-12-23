@@ -32,7 +32,7 @@ public abstract class Entity {
 	 * False if the player can walk through the Entity.
 	 * @return
 	 */
-	public boolean collidable() {
+	public boolean isSolid() {
 		return true;
 	}
 	

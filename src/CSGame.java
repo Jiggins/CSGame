@@ -1,5 +1,7 @@
 import org.lwjgl.opengl.Display;
 
+import world.BGround;
+
 import com.leapmotion.leap.Controller;
 import com.leapmotion.leap.Frame;
 
@@ -22,6 +24,8 @@ public class CSGame {
 		test = new Character(0, 0);
 		
 		test.loadTexture();
+
+		world.ChangeBGround.changeBGround(BGround.lab3);
 		
 		while(!Display.isCloseRequested()) { 
 			gameLoop();
@@ -34,13 +38,13 @@ public class CSGame {
 	
 	public static void gameLoop() {
 		Display.update();
-		currentFrame = controller.frame();
-		x = currentFrame.hands().leftmost().fingers().rightmost().tipPosition().getX() + 320;
-		y = currentFrame.hands().leftmost().fingers().rightmost().tipPosition().getZ() + 240;
-		x2 = currentFrame.hands().rightmost().fingers().leftmost().tipPosition().getX() + 320;
-		y2 = currentFrame.hands().rightmost().fingers().leftmost().tipPosition().getZ() + 240;
-		System.out.println("X: " + x + " Y: " + y + " X1: " +  x2 + " Y2: " + y2);
-		test.render(x, y, x2, y2);
+//		currentFrame = controller.frame();
+//		x = currentFrame.hands().leftmost().fingers().rightmost().tipPosition().getX() + 320;
+//		y = currentFrame.hands().leftmost().fingers().rightmost().tipPosition().getZ() + 240;
+//		x2 = currentFrame.hands().rightmost().fingers().leftmost().tipPosition().getX() + 320;
+//		y2 = currentFrame.hands().rightmost().fingers().leftmost().tipPosition().getZ() + 240;
+//		System.out.println("X: " + x + " Y: " + y + " X1: " +  x2 + " Y2: " + y2);
+//		test.render(x, y, x2, y2);
 		
 	}
 }
