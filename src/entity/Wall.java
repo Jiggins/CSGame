@@ -1,5 +1,7 @@
 package entity;
 
+import utils.Point;
+
 public class Wall extends Entity{
 	
 	public Wall(int x , int y){
