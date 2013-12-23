@@ -19,9 +19,21 @@ public abstract class Entity {
 	public float height;
 	public float width;
 
+	public Entity() {
+		
+	}
+
 	public Entity(int x, int y){
 		this.x = x;
 		this.y = y;
+	}
+	
+	/**
+	 * False if the player can walk through the Entity.
+	 * @return
+	 */
+	public boolean collidable() {
+		return true;
 	}
 	
 	public Texture getTexture(){

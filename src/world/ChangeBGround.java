@@ -15,14 +15,11 @@ public class ChangeBGround{
 	    	
 	    	background = to.getTexture();
 	    }
-	    
+
 	    public void onPlayerArrive(Character player) {
 	        player.warpTo(x, y);       
 	    }
 	    
-	    public void setBackground(Texture background){
-	    	this.background = background;
-	    }
 	    
 	    
 	    
