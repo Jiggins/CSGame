@@ -13,7 +13,7 @@ public class CSGame {
 
 	public static void main(String [] args) {
 		display.CreateDisplay.frame();
-		System.out.println("Hello");
+		System.out.println("Hi");
 		
 		test = new Character(0, 0);
 		
@@ -21,6 +21,7 @@ public class CSGame {
 		
 		while(!Display.isCloseRequested()) { 
 			gameLoop();
+			
 		}
 		
 		Display.destroy();

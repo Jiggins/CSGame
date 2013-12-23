@@ -1,10 +1,13 @@
 package world;
 
+import org.newdawn.slick.opengl.Texture;
+
 
 public class BGround {
 	
 	private int d1X, d1Y;
 	private int d2X, d2Y;
+	
 	
 	//one door
 	public BGround(int d1X, int d1Y){
