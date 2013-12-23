@@ -1,28 +1,36 @@
 package world;
 
+import java.io.IOException;
+
+import org.lwjgl.opengl.Display;
+import org.lwjgl.opengl.GL11;
+import org.newdawn.slick.Color;
 import org.newdawn.slick.opengl.Texture;
+import org.newdawn.slick.opengl.TextureLoader;
+import org.newdawn.slick.util.ResourceLoader;
 
 
 public class BGround{
 	
-	private Texture t;
+	private Texture texture;
+	private String textureLocation;
 
-	public static final BGround lab3 = new BGround() 
+	public static final BGround lab3 = new BGround("resources/NUIMaynoothLogo.png");
 	
-	public BGround(Texture t){
-		this.t = t;
+	public BGround(String textureLocation){
+		this.textureLocation = textureLocation;
 	}
 	
 	public void addDoor(int x, int y){
-		Door door  = new door(x , y);
+		Door door  = new door(x, y);
 	}
 
 	public String getTextureLocation() {
 		return this.textureLocation;
 	}
 	
-	public void setTextureLocation(String location) {
-		this.textureLocation = location;
+	public void setTextureLocation(String textureLocation) {
+		this.textureLocation = textureLocation;
 	}
 
 	public void loadTexture(){
@@ -49,13 +57,13 @@ public class BGround{
 		GL11.glBegin(GL11.GL_QUADS);
 		
 		GL11.glTexCoord2f(0,0);
-		GL11.glVertex2f(x,y);
+		GL11.glVertex2f(0,0);
 		GL11.glTexCoord2f(1,0);
-		GL11.glVertex2f(x+texture.getTextureWidth(),y);
+		GL11.glVertex2f(Display.getWidth(),0);
 		GL11.glTexCoord2f(1,1);
-		GL11.glVertex2f(x+texture.getTextureWidth(),y+texture.getTextureHeight());
+		GL11.glVertex2f(Display.getWidth(), Display.getHeight());
 		GL11.glTexCoord2f(0,1);
-		GL11.glVertex2f(x,y+texture.getTextureHeight());
+		GL11.glVertex2f(0, Display.getHeight());
 		
 		GL11.glEnd();
 	}
