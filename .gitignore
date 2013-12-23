@@ -43,4 +43,4 @@ lwjgl-source-2.9.0/
 # Files #
 #########
 *.sublime-workspace
-.classpath
+*.classpath
