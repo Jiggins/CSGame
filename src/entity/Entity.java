@@ -150,6 +150,28 @@ public abstract class Entity {
 		GL11.glEnd();	
 	}
 	
+	public void render(float x, float y, float z, float w) {
+		GL11.glClearColor(0f, 0f, 0f, 0f);
+		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
+
+		Color.white.bind();
+		texture.bind();
+
+		//create shape for image to sit on
+		GL11.glBegin(GL11.GL_QUADS);
+
+		GL11.glTexCoord2f(0,0);
+		GL11.glVertex2f(x,y);
+		GL11.glTexCoord2f(1,0);
+		GL11.glVertex2f(z,y);
+		GL11.glTexCoord2f(1,1);
+		GL11.glVertex2f(z,w);
+		GL11.glTexCoord2f(0,1);
+		GL11.glVertex2f(x,w);
+
+		GL11.glEnd();
+	}
+	
 	/**
 	 * Zoom to new size
 	 * FIXME This is very broken
