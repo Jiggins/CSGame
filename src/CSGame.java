@@ -10,6 +10,8 @@ public class CSGame {
 	private static Controller controller = new Controller();
 	private static Frame currentFrame = new Frame();
 	private static float x, y, x2, y2;
+	
+	//another text case
 
 	public static void main(String [] args) {
 		display.CreateDisplay.frame();
