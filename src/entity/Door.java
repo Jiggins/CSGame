@@ -17,7 +17,7 @@ public class Door extends Entity{
 		this.lock = lock;
 	}	
 	
-	public boolean getLocked(){
+	public boolean checkIfLocked(){
 		return lock;
 	}
 	
