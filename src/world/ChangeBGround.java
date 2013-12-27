@@ -4,7 +4,7 @@ import org.newdawn.slick.opengl.Texture;
 
 import entity.Character;
 
-public class ChangeBGround {
+public class ChangeBGround{
 	    
 	    private int x;
 	    private int y;

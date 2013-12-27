@@ -1,4 +1,5 @@
 import org.lwjgl.opengl.Display;
+import org.lwjgl.opengl.GL11;
 
 import world.BGround;
 
@@ -12,8 +13,6 @@ public class CSGame {
 //	private static Controller controller = new Controller();
 //	private static Frame currentFrame = new Frame();
 	private static float x, y, x2, y2;
-	
-	//another text case
 
 	public static void main(String [] args) {
 		display.CreateDisplay.frame();
@@ -37,7 +36,13 @@ public class CSGame {
 	}	
 	
 	public static void gameLoop() {
+		
+		GL11.glClearColor(0f, 0f, 0f, 0f);
+		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
+		
+		BGround.lab3.render();
 		Display.update();
+		
 		
 //		currentFrame = controller.frame();
 //		x = currentFrame.hands().leftmost().fingers().rightmost().tipPosition().getX() + 320;

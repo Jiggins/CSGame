@@ -58,7 +58,7 @@
 
 			"windows":
 			{
-				"cmd": ["SublimeText/LaunchGame.bat"]
+				"cmd": ["SublimeText\\LaunchGame.bat"]
 			}
 		}
 	]
