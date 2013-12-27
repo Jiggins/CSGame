@@ -24,3 +24,12 @@ Todo List
 	Scrolling/switching backgrounds
 	Menu Screen - start/help/credits ect.
 	Walls? Something other then walls?
+
+Ideas
+=====
+
+	1. Robots - If you have to drag/put/click code into place sorta like scratch to control a robot through a maze or something?. Or collect piece of the robot?.
+	2. CS220 - If you had to build a jigsaw of a circuit we used?
+	3. CS151 - Solving a puzzle with cluedo type clues?
+	4. Have other puzzles for 3rd and 4th years
+	5. Something with work experience?
