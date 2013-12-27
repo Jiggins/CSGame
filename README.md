@@ -20,7 +20,7 @@ Running the game:
 Todo List
 =========
 
-Background - with exits/entrances (DONE)
-Scrolling/switching backgrounds
-Menu Screen - start/help/credits ect.
-Walls? Something other then walls?
+	Background - with exits/entrances (DONE)
+	Scrolling/switching backgrounds
+	Menu Screen - start/help/credits ect.
+	Walls? Something other then walls?
