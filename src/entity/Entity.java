@@ -28,6 +28,12 @@ public abstract class Entity {
 		this.y = y;
 	}
 	
+	public Entity(int x, int y, String textureLocation) {
+		this.x = x;
+		this.y = y;
+		this.textureLocation = textureLocation;
+	}
+	
 	/**
 	 * False if the player can walk through the Entity.
 	 * @return

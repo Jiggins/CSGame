@@ -5,7 +5,7 @@ public class Character extends Entity{
 		
 		public Character(int x, int y) {
 		super(x, y);	
-		//TODO make images
+		setTextureLocation(null);
 		}			
 		
 		public void moveToLeft(){
