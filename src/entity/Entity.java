@@ -20,18 +20,30 @@ public abstract class Entity {
 	public float width;
 
 	public Entity() {
-		
+		this(15, 15, 16, 16, null);
 	}
 
 	public Entity(int x, int y){
-		this.x = x;
-		this.y = y;
+		this(x, y, 16, 16, null);
 	}
 	
-	public Entity(int x, int y, String textureLocation) {
+	public Entity(int x, int y, int height, int width) {
+		this(x, y, height, width, null);
+	}
+	
+	public Entity(int x, int y, int height, int width, String textureLocation) {
 		this.x = x;
 		this.y = y;
+		this.height = height;
+		this.width = width;
 		this.textureLocation = textureLocation;
+	}
+	
+	/**
+	 * Called every tick
+	 */
+	public void update() {
+		
 	}
 	
 	/**
@@ -107,14 +119,14 @@ public abstract class Entity {
 		
 		GL11.glBegin(GL11.GL_QUADS);
 		
-		GL11.glTexCoord2f(0,0);
-		GL11.glVertex2f(x,y);
-		GL11.glTexCoord2f(1,0);
-		GL11.glVertex2f(x+texture.getTextureWidth(),y);
-		GL11.glTexCoord2f(1,1);
-		GL11.glVertex2f(x+texture.getTextureWidth(),y+texture.getTextureHeight());
-		GL11.glTexCoord2f(0,1);
-		GL11.glVertex2f(x,y+texture.getTextureHeight());
+			GL11.glTexCoord2f(0,0);
+			GL11.glVertex2f(x,y);
+			GL11.glTexCoord2f(1,0);
+			GL11.glVertex2f(x+texture.getTextureWidth(),y);
+			GL11.glTexCoord2f(1,1);
+			GL11.glVertex2f(x+texture.getTextureWidth(),y+texture.getTextureHeight());
+			GL11.glTexCoord2f(0,1);
+			GL11.glVertex2f(x,y+texture.getTextureHeight());
 		
 		GL11.glEnd();
 		

@@ -1,11 +1,9 @@
+import java.util.ArrayList;
+
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 
-import world.BGround;
-
-import com.leapmotion.leap.Controller;
-import com.leapmotion.leap.Frame;
-
+import menu.Button;
 import entity.Character;
 
 public class CSGame {
@@ -13,7 +11,9 @@ public class CSGame {
 //	private static Controller controller = new Controller();
 //	private static Frame currentFrame = new Frame();
 	private static float x, y, x2, y2;
-
+	
+	private static ArrayList<Button> buttons = new ArrayList<Button>();
+	
 	public static void main(String [] args) {
 		display.CreateDisplay.frame();
 		
