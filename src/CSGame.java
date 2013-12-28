@@ -1,18 +1,18 @@
+import menu.States;
+
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 
 import world.BGround;
-
-import com.leapmotion.leap.Controller;
-import com.leapmotion.leap.Frame;
-
 import entity.Character;
+import menu.MainMenu;
 
 public class CSGame {
 	private static Character test;
 //	private static Controller controller = new Controller();
 //	private static Frame currentFrame = new Frame();
 	private static float x, y, x2, y2;
+	public static States state = States.Main_Menu;
 
 	public static void main(String [] args) {
 		display.CreateDisplay.frame();
@@ -27,7 +27,17 @@ public class CSGame {
 		world.ChangeBGround.changeBGround(BGround.lab3);
 		
 		while(!Display.isCloseRequested()) { 
-			gameLoop();
+			
+			switch(state){
+			
+			case Main_Menu: 
+				MainMenu.startup();
+				MainMenu.loop();
+				break;
+			
+			case Game:
+				gameLoop();		
+			}
 			
 		}
 		
