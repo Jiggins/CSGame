@@ -11,7 +11,6 @@ import org.newdawn.slick.util.ResourceLoader;
 
 import entity.Door;
 
-
 public class BGround{
 	
 	private Texture texture;
