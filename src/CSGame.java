@@ -1,10 +1,14 @@
 import java.util.ArrayList;
+import menu.States;
 
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 
 import menu.Button;
+import world.BGround;
+
 import entity.Character;
+import menu.MainMenu;
 
 public class CSGame {
 	private static Character test;
@@ -14,6 +18,8 @@ public class CSGame {
 	
 	private static ArrayList<Button> buttons = new ArrayList<Button>();
 	
+	public static States state = States.Main_Menu;
+
 	public static void main(String [] args) {
 		display.CreateDisplay.frame();
 		
@@ -21,12 +27,23 @@ public class CSGame {
 		
 		test = new Character(0, 0);
 		
+		test.setTextureLocation("resources/NUIMaynoothLogo.png");
 		test.loadTexture();
 
-		//world.ChangeBGround.changeBGround(BGround.lab3);
+		world.ChangeBGround.changeBGround(BGround.lab3);
 		
 		while(!Display.isCloseRequested()) { 
-			gameLoop();
+			
+			switch(state){
+			
+			case Main_Menu: 
+				MainMenu.startup();
+				MainMenu.loop();
+				break;
+			
+			case Game:
+				gameLoop();		
+			}
 			
 		}
 		
@@ -39,7 +56,8 @@ public class CSGame {
 		GL11.glClearColor(0f, 0f, 0f, 0f);
 		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 		
-		//BGround.lab3.render();
+		BGround.lab3.render();
+		test.render();
 		Display.update();
 		
 		
