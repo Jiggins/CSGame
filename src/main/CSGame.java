@@ -1,3 +1,4 @@
+package main;
 import java.util.ArrayList;
 import menu.States;
 
@@ -12,11 +13,8 @@ import menu.MainMenu;
 
 public class CSGame {
 	private static Character test;
-//	private static Controller controller = new Controller();
-//	private static Frame currentFrame = new Frame();
-	private static float x, y, x2, y2;
 	
-	private static ArrayList<Button> buttons = new ArrayList<Button>();
+	public static ArrayList<Button> buttons = new ArrayList<Button>();
 	
 	public static States state = States.Main_Menu;
 
@@ -43,7 +41,6 @@ public class CSGame {
 			case Game:
 				gameLoop();		
 			}
-			
 		}
 		
 		Display.destroy();
@@ -55,8 +52,6 @@ public class CSGame {
 		GL11.glClearColor(0f, 0f, 0f, 0f);
 		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 		
-//		BGround.lab3.render();
-//		test.render();
 		Display.update();
 		
 		

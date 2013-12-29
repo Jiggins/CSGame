@@ -1,5 +1,7 @@
 package menu;
 
+import main.CSGame;
+
 import org.lwjgl.input.Mouse;
 
 import entity.Entity;
