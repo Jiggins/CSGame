@@ -24,8 +24,8 @@ public class Closing {
 			Display.update();
 		}
 		
-		Display.destroy();
-		System.exit(0);
+		//Display.destroy();
+		//System.exit(0);
 		
 		
 	}

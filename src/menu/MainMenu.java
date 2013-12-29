@@ -31,7 +31,7 @@ public class MainMenu {
 				break;
 			}
 			
-			if(true/* start button is clicked*/){
+			if(false/* start button is clicked*/){
 				CSGame.state = States.Game;
 				break;
 			}

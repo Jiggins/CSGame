@@ -2,6 +2,7 @@ package main;
 import java.util.ArrayList;
 
 import menu.Closing;
+import menu.Game;
 import menu.States;
 
 import org.lwjgl.opengl.Display;
@@ -41,7 +42,7 @@ public class CSGame {
 				break;
 			
 			case Game:
-				gameLoop();	
+				Game.loop();	
 				break;
 				
 			case Closing:
@@ -49,16 +50,9 @@ public class CSGame {
 			}
 		}
 		
-		Display.destroy();
-		System.exit(0);
+		Closing.loop();
 	}	
 	
-	public static void gameLoop() {
-		
-		GL11.glClearColor(0f, 0f, 0f, 0f);
-		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
-		
-		Display.update();
 		
 		
 //		currentFrame = controller.frame();
@@ -69,5 +63,4 @@ public class CSGame {
 //		System.out.println("X: " + x + " Y: " + y + " X1: " +  x2 + " Y2: " + y2);
 //		test.render(x, y, x2, y2);
 		
-	}
 }
