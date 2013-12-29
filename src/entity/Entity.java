@@ -12,8 +12,8 @@ import org.newdawn.slick.util.ResourceLoader;
 
 public abstract class Entity {
 	
-	public Texture texture;
-	public String textureLocation;
+	private Texture texture;
+	private String textureLocation;
 	public int x;
 	public int y;
 	public float height;
@@ -52,9 +52,7 @@ public abstract class Entity {
 	/**
 	 * Called every tick
 	 */
-	public void update() {
-		
-	}
+	public abstract void update();
 	
 	/**
 	 * False if the player can walk through the Entity.
@@ -218,7 +216,6 @@ public abstract class Entity {
 	
 	/**
 	 * Zoom to new size
-	 * FIXME This is very broken
 	 * @param x
 	 * @param y
 	 */

@@ -25,13 +25,6 @@ public class Button extends Entity {
 		CSGame.buttons.add(this);
 	}
 	
-	/**
-	 * Called when object is clicked.
-	 */
-	public void click() {
-		System.out.println("Clicked on " + this.toString());
-	}
-
 	@Override
 	public void update() {
 		if (inBounds()) {
@@ -40,11 +33,18 @@ public class Button extends Entity {
 			}
 		}
 	}
-	
+
+	/**
+	 * Called when object is clicked.
+	 */
+	private void click() {
+		System.out.println("Clicked on " + this.toString());
+	}
+
 	/**
 	 * @return true if mouse is over Button
 	 */
-	public boolean inBounds() {
+	private boolean inBounds() {
 		if (Mouse.getX() >= this.x &&  Mouse.getX() <= this.x + width &&
 				Mouse.getY() <= Display.getHeight() - this.y && Mouse.getY() >= Display.getHeight() - this.y - height) {
 			return true;

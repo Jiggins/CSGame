@@ -10,8 +10,14 @@ public class Character extends Entity{
 		
 		public Character(int x, int y, String textureLocation) {
 			super(x, y, textureLocation);
-			}
+		}
 		
+		@Override
+		public void update() {
+			// TODO Do something on Update - Movement Code
+			
+		}
+
 		public void moveToLeft(){
 			if(x > 0){
 				setPosition(this.x - 10, this.y);
