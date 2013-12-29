@@ -18,7 +18,7 @@ public class MainMenu {
 	
 	
 	public static void loop(){
-		while(true /*button not pressed*/){
+		while(true /* !start.click() , start button not pressed*/){
 			
 			GL11.glClearColor(0f, 0f, 0f, 0f);
 			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
@@ -33,9 +33,13 @@ public class MainMenu {
 			Display.update();
 			
 			if(Display.isCloseRequested()){
-				//closing state
-				Display.destroy();
-				System.exit(0);
+				CSGame.state = States.Closing;
+				break;
+			}
+			
+			if(true/* start button is clicked*/){
+				CSGame.state = States.Game;
+				break;
 			}
 		}
 		
