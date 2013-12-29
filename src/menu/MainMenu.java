@@ -30,6 +30,11 @@ public class MainMenu {
 				CSGame.state = States.Closing;
 				break;
 			}
+			
+			if(true/* start button is clicked*/){
+				CSGame.state = States.Game;
+				break;
+			}
 		}
 		
 		
