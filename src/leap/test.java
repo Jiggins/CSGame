@@ -18,10 +18,7 @@ public class test {
 			
 			for(int i = 0; i<currentFrame.fingers().count();i++){
 				
-			}
-			
+			}	
 		}
-		
 	}
-
 }
