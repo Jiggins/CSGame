@@ -2,6 +2,7 @@ package menu;
 
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
+import menu.States;
 
 import world.BGround;
 
@@ -15,17 +16,18 @@ public class MainMenu {
 	
 	
 	public static void loop(){
-		while(!Display.isCloseRequested() /* and button not pressed*/){
+		while(true /*button not pressed*/){
 			
 			GL11.glClearColor(0f, 0f, 0f, 0f);
 			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 			
-			BGround.lab3.render();
 			menu.render();
 			Display.update();
 			
 			if(Display.isCloseRequested()){
-				CSGame.state = Closing;
+				//closing state
+				Display.destroy();
+				System.exit(0);
 			}
 		}
 		

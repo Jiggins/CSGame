@@ -146,14 +146,14 @@ public abstract class Entity {
 		//create shape for image to sit on
 		GL11.glBegin(GL11.GL_QUADS);
 
-		GL11.glTexCoord2f(0,0);
-		GL11.glVertex2f(x,y);
-		GL11.glTexCoord2f(1,0);
-		GL11.glVertex2f(x+width,y);
-		GL11.glTexCoord2f(1,1);
-		GL11.glVertex2f(x+width,y+height);
-		GL11.glTexCoord2f(0,1);
-		GL11.glVertex2f(x,y+height);
+			GL11.glTexCoord2f(0,0);
+			GL11.glVertex2f(x,y);
+			GL11.glTexCoord2f(1,0);
+			GL11.glVertex2f(x+width,y);
+			GL11.glTexCoord2f(1,1);
+			GL11.glVertex2f(x+width,y+height);
+			GL11.glTexCoord2f(0,1);
+			GL11.glVertex2f(x,y+height);
 
 		GL11.glEnd();	
 	}
@@ -168,14 +168,14 @@ public abstract class Entity {
 		//create shape for image to sit on
 		GL11.glBegin(GL11.GL_QUADS);
 
-		GL11.glTexCoord2f(0,0);
-		GL11.glVertex2f(x,y);
-		GL11.glTexCoord2f(1,0);
-		GL11.glVertex2f(x+width,y);
-		GL11.glTexCoord2f(1,1);
-		GL11.glVertex2f(x+width,y+height);
-		GL11.glTexCoord2f(0,1);
-		GL11.glVertex2f(x,y+height);
+			GL11.glTexCoord2f(0,0);
+			GL11.glVertex2f(x,y);
+			GL11.glTexCoord2f(1,0);
+			GL11.glVertex2f(x+width,y);
+			GL11.glTexCoord2f(1,1);
+			GL11.glVertex2f(x+width,y+height);
+			GL11.glTexCoord2f(0,1);
+			GL11.glVertex2f(x,y+height);
 
 		GL11.glEnd();	
 	}
@@ -190,14 +190,14 @@ public abstract class Entity {
 		//create shape for image to sit on
 		GL11.glBegin(GL11.GL_QUADS);
 
-		GL11.glTexCoord2f(0,0);
-		GL11.glVertex2f(x,y);
-		GL11.glTexCoord2f(1,0);
-		GL11.glVertex2f(z,y);
-		GL11.glTexCoord2f(1,1);
-		GL11.glVertex2f(z,w);
-		GL11.glTexCoord2f(0,1);
-		GL11.glVertex2f(x,w);
+			GL11.glTexCoord2f(0,0);
+			GL11.glVertex2f(x,y);
+			GL11.glTexCoord2f(1,0);
+			GL11.glVertex2f(z,y);
+			GL11.glTexCoord2f(1,1);
+			GL11.glVertex2f(z,w);
+			GL11.glTexCoord2f(0,1);
+			GL11.glVertex2f(x,w);
 
 		GL11.glEnd();
 	}
