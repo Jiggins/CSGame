@@ -1,5 +1,7 @@
 package main;
 import java.util.ArrayList;
+
+import menu.Closing;
 import menu.States;
 
 import org.lwjgl.opengl.Display;
@@ -39,7 +41,11 @@ public class CSGame {
 				break;
 			
 			case Game:
-				gameLoop();		
+				gameLoop();	
+				break;
+				
+			case Closing:
+				Closing.loop();
 			}
 		}
 		

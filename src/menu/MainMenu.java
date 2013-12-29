@@ -2,6 +2,8 @@ package menu;
 
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
+
+import main.CSGame;
 import menu.States;
 
 import world.BGround;
@@ -25,9 +27,8 @@ public class MainMenu {
 			Display.update();
 			
 			if(Display.isCloseRequested()){
-				//closing state
-				Display.destroy();
-				System.exit(0);
+				CSGame.state = States.Closing;
+				break;
 			}
 		}
 		
