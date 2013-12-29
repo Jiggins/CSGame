@@ -4,7 +4,7 @@ import com.leapmotion.leap.*;
 
 public class test {
 
-	public static void test() {
+	public static void Test() {
 		
 		Controller controller = new Controller();
 		

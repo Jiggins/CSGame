@@ -15,7 +15,6 @@ public class Character extends Entity{
 		@Override
 		public void update() {
 			// TODO Do something on Update - Movement Code
-			
 		}
 
 		public void moveToLeft(){

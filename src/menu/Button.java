@@ -38,7 +38,7 @@ public class Button extends Entity {
 	 * Called when object is clicked.
 	 */
 	private void click() {
-		System.out.println("Clicked on " + this.toString());
+		System.out.println("Clicked on " + this.text);
 	}
 
 	/**

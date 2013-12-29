@@ -1,18 +1,15 @@
 package main;
 import java.util.ArrayList;
 
+import menu.Button;
 import menu.Closing;
 import menu.Game;
+import menu.MainMenu;
 import menu.States;
 
 import org.lwjgl.opengl.Display;
-import org.lwjgl.opengl.GL11;
-
-import menu.Button;
-import world.BGround;
 
 import entity.Character;
-import menu.MainMenu;
 
 public class CSGame {
 	private static Character test;

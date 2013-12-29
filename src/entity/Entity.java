@@ -81,7 +81,7 @@ public abstract class Entity {
 	public int getX(){ 
 		return this.x;
 	}
-	
+
 	public int getY(){
 		return this.y;
 	}
