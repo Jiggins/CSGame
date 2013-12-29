@@ -25,12 +25,11 @@ public class CSGame {
 		
 		System.out.println("Hi");
 		
-		test = new Character(0, 0);
-		
-		test.setTextureLocation("resources/NUIMaynoothLogo.png");
-		test.loadTexture();
+//		test = new Character(0, 0, "NUIMaynoothLogo");
+//		
+//		test.setTextureLocation("NUIMaynoothLogo");
 
-		world.ChangeBGround.changeBGround(BGround.lab3);
+//		world.ChangeBGround.changeBGround(BGround.lab3);
 		
 		while(!Display.isCloseRequested()) { 
 			
@@ -56,8 +55,8 @@ public class CSGame {
 		GL11.glClearColor(0f, 0f, 0f, 0f);
 		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 		
-		BGround.lab3.render();
-		test.render();
+//		BGround.lab3.render();
+//		test.render();
 		Display.update();
 		
 		

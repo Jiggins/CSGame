@@ -8,7 +8,7 @@ import world.BGround;
 
 public class MainMenu {
 	
-	private static BGround menu = new BGround(null);
+	private static BGround menu = new BGround("Menu");
 	
 	public static void startup(){
 		menu.loadTexture();

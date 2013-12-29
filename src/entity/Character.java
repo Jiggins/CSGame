@@ -6,7 +6,11 @@ public class Character extends Entity{
 		public Character(int x, int y) {
 		super(x, y);	
 		setTextureLocation(null);
-		}			
+		}
+		
+		public Character(int x, int y, String textureLocation) {
+			super(x, y, textureLocation);
+			}
 		
 		public void moveToLeft(){
 			if(x > 0){

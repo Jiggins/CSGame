@@ -27,6 +27,15 @@ public abstract class Entity {
 		this(x, y, 16, 16, null);
 	}
 	
+	public Entity(int x, int y, String textureLocation) {
+		this.x = x;
+		this.y = y;
+		setTextureLocation(textureLocation);
+		this.loadTexture();
+		this.height = texture.getHeight();
+		this.width = texture.getImageWidth();
+	}
+	
 	public Entity(int x, int y, int height, int width) {
 		this(x, y, height, width, null);
 	}
@@ -36,7 +45,8 @@ public abstract class Entity {
 		this.y = y;
 		this.height = height;
 		this.width = width;
-		this.textureLocation = textureLocation;
+		setTextureLocation(textureLocation);
+		this.loadTexture();
 	}
 	
 	/**
@@ -63,7 +73,7 @@ public abstract class Entity {
 	}
 	
 	public void setTextureLocation(String location) {
-		this.textureLocation = location;
+		this.textureLocation = "resources/" + textureLocation + ".png";
 	}
 
 	public int getX(){ 
@@ -98,7 +108,7 @@ public abstract class Entity {
 	public void loadTexture(){
 		if (this.getTextureLocation() == null) {
 			System.out.println("Missing Texture for " + this.getClass());
-			this.setTextureLocation("resources/MissingTexture.png");
+			this.setTextureLocation("MissingTexture");
 		}
 		
 		try {

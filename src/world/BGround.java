@@ -16,10 +16,10 @@ public class BGround{
 	private Texture texture;
 	private String textureLocation;
 
-	public static final BGround lab3 = new BGround("resources/MissingTexture.png");
+	public static final BGround lab3 = new BGround("MissingTexture");
 	
 	public BGround(String textureLocation){
-		this.textureLocation = textureLocation;
+		setTextureLocation(textureLocation);
 		this.loadTexture();
 	}
 	
@@ -33,13 +33,13 @@ public class BGround{
 	}
 	
 	public void setTextureLocation(String textureLocation) {
-		this.textureLocation = textureLocation;
+		this.textureLocation = "resources/" + textureLocation + ".png";
 	}
 
 	public BGround loadTexture(){
 		if (this.getTextureLocation() == null) {
 			System.out.println("Missing Texture for " + this.getClass());
-			this.setTextureLocation("resources/MissingTexture.png");
+			this.setTextureLocation("MissingTexture");
 		}
 		
 		try {
