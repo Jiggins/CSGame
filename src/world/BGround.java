@@ -33,6 +33,10 @@ public class BGround{
 	}
 	
 	public void setTextureLocation(String textureLocation) {
+		if (textureLocation == null) {
+			this.textureLocation = "resources/MissingTexture.png";
+			return;
+		}
 		this.textureLocation = "resources/" + textureLocation + ".png";
 	}
 
