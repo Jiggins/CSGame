@@ -14,6 +14,7 @@ public class MainMenu {
 	
 	public static void startup(){
 		menu.loadTexture();
+		Button start = new Button(15, 15);
 	}
 	
 	
@@ -24,6 +25,11 @@ public class MainMenu {
 			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 			
 			menu.render();
+			
+			for (Button button : CSGame.buttons) {
+				button.update();
+			}
+			
 			Display.update();
 			
 			if(Display.isCloseRequested()){

@@ -12,6 +12,11 @@ public class Door extends Entity{
 		super(x,y);
 	}
 	
+	@Override
+	public void update() {
+		
+	}
+
 	//set to be locked/unlocked
 	public void setLocked(boolean lock){
 		this.lock = lock;

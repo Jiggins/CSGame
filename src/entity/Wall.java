@@ -11,6 +11,12 @@ public class Wall extends Entity{
 		super(x,y);
 	}
 	
+	@Override
+	public void update() {
+		// TODO Do something on update
+		
+	}
+
 	public Wall(Point start, Point end){
 		this.start = start;
 		this.end = end;
