@@ -32,19 +32,19 @@ public abstract class Entity {
 		this.y = y;
 		setTextureLocation(textureLocation);
 		this.loadTexture();
-		this.height = texture.getHeight();
 		this.width = texture.getImageWidth();
+		this.height = texture.getHeight();
 	}
 	
-	public Entity(int x, int y, int height, int width) {
+	public Entity(int x, int y, int width, int height) {
 		this(x, y, height, width, null);
 	}
 	
-	public Entity(int x, int y, int height, int width, String textureLocation) {
+	public Entity(int x, int y, int width, int height, String textureLocation) {
 		this.x = x;
 		this.y = y;
-		this.height = height;
 		this.width = width;
+		this.height = height;
 		setTextureLocation(textureLocation);
 		this.loadTexture();
 	}
@@ -72,7 +72,11 @@ public abstract class Entity {
 		return this.textureLocation;
 	}
 	
-	public void setTextureLocation(String location) {
+	public void setTextureLocation(String textureLocation) {
+		if (textureLocation == null) {
+			this.textureLocation = "resources/MissingTexture.png";
+			return;
+		}
 		this.textureLocation = "resources/" + textureLocation + ".png";
 	}
 
@@ -132,11 +136,11 @@ public abstract class Entity {
 			GL11.glTexCoord2f(0,0);
 			GL11.glVertex2f(x,y);
 			GL11.glTexCoord2f(1,0);
-			GL11.glVertex2f(x+texture.getTextureWidth(),y);
+			GL11.glVertex2f(x+width,y);
 			GL11.glTexCoord2f(1,1);
-			GL11.glVertex2f(x+texture.getTextureWidth(),y+texture.getTextureHeight());
+			GL11.glVertex2f(x+width,y+height);
 			GL11.glTexCoord2f(0,1);
-			GL11.glVertex2f(x,y+texture.getTextureHeight());
+			GL11.glVertex2f(x,y+height);
 		
 		GL11.glEnd();
 		

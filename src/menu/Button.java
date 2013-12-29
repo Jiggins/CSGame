@@ -3,13 +3,26 @@ package menu;
 import main.CSGame;
 
 import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.Display;
 
 import entity.Entity;
 
 public class Button extends Entity {
 
+	private String text;
+
 	public Button(int x, int y) {
-		super(x, y);
+		this(x, y, 64, 32, "Button");
+	}
+	
+	public Button(int x, int y, String text) {
+		this(x, y, 64, 32, text);
+	}
+	
+	public Button(int x, int y, int width, int height, String text) {
+		super(x, y, width, height, "Button");
+		this.text = text;
+		CSGame.buttons.add(this);
 	}
 	
 	/**
@@ -22,15 +35,19 @@ public class Button extends Entity {
 	@Override
 	public void update() {
 		if (inBounds()) {
-			this.click();
+			if(Mouse.isButtonDown(0)) {
+				this.click();
+			}
 		}
 	}
 	
+	/**
+	 * @return true if mouse is over Button
+	 */
 	public boolean inBounds() {
-		if (Mouse.getEventX() >= this.x &&  Mouse.getEventX() <= this.x + width &&
-				Mouse.getEventY() >= this.y && Mouse.getEventY() <= this.y + height) {
+		if (Mouse.getX() >= this.x &&  Mouse.getX() <= this.x + width &&
+				Mouse.getY() <= Display.getHeight() - this.y && Mouse.getY() >= Display.getHeight() - this.y - height) {
 			return true;
-			
 		}
 		return false;
 	}

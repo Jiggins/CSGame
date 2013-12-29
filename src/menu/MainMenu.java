@@ -2,8 +2,9 @@ package menu;
 
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
-import menu.States;
 
+import main.CSGame;
+import menu.States;
 import world.BGround;
 
 public class MainMenu {
@@ -11,6 +12,7 @@ public class MainMenu {
 	private static BGround menu = new BGround("Menu");
 	
 	public static void startup(){
+		Button start = new Button(15, 15);
 		menu.loadTexture();
 	}
 	
@@ -22,6 +24,12 @@ public class MainMenu {
 			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 			
 			menu.render();
+			
+			for (Button button : CSGame.buttons) {
+				button.update();
+				button.render();
+			}
+			
 			Display.update();
 			
 			if(Display.isCloseRequested()){
