@@ -3,12 +3,8 @@ package menu;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 
-import world.BGround;
 
 public class Closing {
-
-	
-	private static BGround closing = new BGround(null);
 	
 	public static void loop(){
 		
@@ -17,7 +13,7 @@ public class Closing {
 		
 		while(x < 1000 /* !start.click() , start button not pressed*/){
 			
-//			MainMenu.menu.render();
+			MainMenu.menu.render();
 			
 			GL11.glBegin(GL11.GL_QUADS);
 				GL11.glEnable(GL11.GL_BLEND);
@@ -33,7 +29,7 @@ public class Closing {
 			
 			Display.update();
 			x++;
-			y = y + .0001f;
+			y = y + .001f;
 		}
 		
 		Display.destroy();
