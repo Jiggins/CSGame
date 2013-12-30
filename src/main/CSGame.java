@@ -29,6 +29,7 @@ public class CSGame {
 			
 			case Main_Menu: 
 				MainMenu.startup();
+				Character.player.startup();
 				MainMenu.loop();
 				break;
 			

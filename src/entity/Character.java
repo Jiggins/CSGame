@@ -1,6 +1,10 @@
 package entity;
 
+import org.lwjgl.input.Keyboard;
+
 public class Character extends Entity{
+	
+	public static Character player = new Character(100, 100,"NUIMaynoothLogo");
 	
 		
 		public Character(int x, int y) {
@@ -12,8 +16,30 @@ public class Character extends Entity{
 			super(x, y, textureLocation);
 		}
 		
+		//TODO need smaller textures to test
+		public void startup(){
+			player.loadTexture();
+			
+		}
+		
 		@Override
 		public void update() {
+			
+			if (Keyboard.isKeyDown(Keyboard.KEY_LEFT)) {
+				player.moveToLeft();
+				System.out.println("MovedLeft");
+			}
+			if (Keyboard.isKeyDown(Keyboard.KEY_RIGHT)) {
+				player.moveToRight();
+			}
+			if (Keyboard.isKeyDown(Keyboard.KEY_UP)) {
+				player.moveUp();
+			}
+			if (Keyboard.isKeyDown(Keyboard.KEY_DOWN)) {
+				player.moveDown();
+			}
+			
+			
 			// TODO Do something on Update - Movement Code
 		}
 
