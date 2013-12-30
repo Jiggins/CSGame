@@ -12,7 +12,7 @@ public class Button extends Entity {
 	private String text;
 
 	public Button(int x, int y) {
-		this(x, y, 64, 32, "Button");
+		this(x, y, 64, 32, "MissingTexture");
 	}
 	
 	public Button(int x, int y, String text) {
