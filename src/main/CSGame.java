@@ -8,10 +8,14 @@ import menu.States;
 
 import org.lwjgl.opengl.Display;
 
+import world.BGround;
+
 import entity.Character;
 import entity.buttons.Button;
 
 public class CSGame {
+	
+	public static BGround currentBackground;
 	public static ArrayList<Button> buttons = new ArrayList<Button>();
 	
 	public static States state = States.Main_Menu;

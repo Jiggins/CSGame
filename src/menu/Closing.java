@@ -1,5 +1,7 @@
 package menu;
 
+import main.CSGame;
+
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 
@@ -13,7 +15,7 @@ public class Closing {
 		
 		while(x < 1000 /* !start.click() , start button not pressed*/){
 			
-			MainMenu.menu.render();
+			CSGame.currentBackground.render();
 			
 			GL11.glBegin(GL11.GL_QUADS);
 				GL11.glEnable(GL11.GL_BLEND);

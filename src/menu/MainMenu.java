@@ -15,7 +15,8 @@ public class MainMenu {
 	private static StateButton start;
 	
 	public static void startup(){
-		menu.loadTexture();
+		CSGame.currentBackground = menu;
+		CSGame.currentBackground.loadTexture();
 		start = new StateButton(15, 15, States.Closing);
 	}
 
@@ -25,7 +26,7 @@ public class MainMenu {
 			GL11.glClearColor(0f, 0f, 0f, 0f);
 			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 			
-			menu.render();
+			CSGame.currentBackground.render();
 			start.update();
 			for (Button button : CSGame.buttons) {
 //				button.update();
@@ -38,7 +39,7 @@ public class MainMenu {
 				break;
 			}
 			
-			if(false/* start button is clicked*/){
+			if(false /*button is pressed*/){
 				CSGame.state = States.Game;
 				break;
 			}
