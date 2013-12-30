@@ -1,7 +1,6 @@
 package main;
 import java.util.ArrayList;
 
-import menu.Button;
 import menu.Closing;
 import menu.Game;
 import menu.MainMenu;
@@ -10,6 +9,7 @@ import menu.States;
 import org.lwjgl.opengl.Display;
 
 import entity.Character;
+import entity.buttons.Button;
 
 public class CSGame {
 	public static ArrayList<Button> buttons = new ArrayList<Button>();
@@ -19,7 +19,7 @@ public class CSGame {
 	public static void main(String [] args) {
 		display.CreateDisplay.frame();
 				
-		while(!Display.isCloseRequested()) { 
+		while(!Display.isCloseRequested()) {
 			
 			switch(state){
 			
@@ -29,14 +29,14 @@ public class CSGame {
 				break;
 			
 			case Game:
-				Game.loop();	
+				Game.loop();
 				break;
 				
 			case Closing:
 				Closing.loop();
 			}
 		}
-		
+
 		Closing.loop();
-	}			
+	}
 }

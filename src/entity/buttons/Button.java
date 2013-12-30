@@ -1,4 +1,4 @@
-package menu;
+package entity.buttons;
 
 import main.CSGame;
 
@@ -19,6 +19,15 @@ public class Button extends Entity {
 		this(x, y, 64, 32, text);
 	}
 	
+	/**
+	 * Button
+	 * Extends Entity
+	 * @param x
+	 * @param y
+	 * @param width
+	 * @param height
+	 * @param text
+	 */
 	public Button(int x, int y, int width, int height, String text) {
 		super(x, y, width, height, "Button");
 		this.text = text;
@@ -27,8 +36,10 @@ public class Button extends Entity {
 	
 	@Override
 	public void update() {
+		this.render();
 		if (inBounds()) {
 			if(Mouse.isButtonDown(0)) {
+				System.out.println("Clicked");
 				this.click();
 			}
 		}
@@ -37,7 +48,7 @@ public class Button extends Entity {
 	/**
 	 * Called when object is clicked.
 	 */
-	private void click() {
+	public void click() {
 		System.out.println("Clicked on " + this.text);
 	}
 

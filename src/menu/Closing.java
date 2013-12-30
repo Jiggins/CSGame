@@ -9,7 +9,6 @@ public class Closing {
 	
 	private static BGround closing = new BGround(null);
 	
-	
 	public static void loop(){
 		
 		int x = 0;
