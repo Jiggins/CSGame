@@ -1,5 +1,7 @@
 package entity.buttons;
 
+import java.util.Random;
+
 import main.CSGame;
 
 import org.lwjgl.input.Mouse;
@@ -9,6 +11,11 @@ import org.lwjgl.opengl.GL11;
 import static org.lwjgl.opengl.GL11.*;
 import entity.Entity;
 
+/**
+ * Button
+ * Extends Entity
+ * Adds an object that can be clicked
+ */
 public class Button extends Entity {
 
 	private String text;
@@ -70,18 +77,20 @@ public class Button extends Entity {
 		return false;
 	}
 	
+	private Random random = new Random();
+	
 	public void render() {
 		
 		glBegin(GL_QUADS);
-//			GL11.glEnable(GL11.GL_BLEND);
+			glEnable(GL11.GL_BLEND);
 			
-			GL11.glColor3f(1, 1, 1);
-			GL11.glVertex2f(x, y); // Upper-left
-			GL11.glVertex2f(x + width, y); //Upper-right
-			GL11.glVertex2f(x + width, y + height); //Bottom-right
-			GL11.glVertex2f(x, y + height); //Bottom-left
+			glColor3f(random.nextFloat(), random.nextFloat(), random.nextFloat());
+			glVertex2f(x, y); // Upper-left
+			glVertex2f(x + width, y); //Upper-right
+			glVertex2f(x + width, y + height); //Bottom-right
+			glVertex2f(x, y + height); //Bottom-left
 		
-//		GL11.glDisable(GL11.GL_BLEND);
+			glDisable(GL11.GL_BLEND);
 		glEnd();
 	}
 }
