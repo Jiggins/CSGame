@@ -26,4 +26,12 @@ public class Door extends Entity{
 		return lock;
 	}
 	
+	public int getX(){
+		return x;
+	}
+	
+	public int getY(){
+		return y;
+	}
+	
 }

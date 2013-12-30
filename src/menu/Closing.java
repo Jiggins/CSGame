@@ -3,12 +3,8 @@ package menu;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 
-import world.BGround;
-
 public class Closing {
-	
-	private static BGround closing = new BGround(null);
-	
+
 	
 	public static void loop(){
 		
