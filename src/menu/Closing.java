@@ -15,9 +15,9 @@ public class Closing {
 		int x = 0;
 		float y = 0;
 		
-		while(x < 10000 /* !start.click() , start button not pressed*/){
+		while(x < 1000 /* !start.click() , start button not pressed*/){
 			
-			MainMenu.menu.render();
+//			MainMenu.menu.render();
 			
 			GL11.glBegin(GL11.GL_QUADS);
 				GL11.glEnable(GL11.GL_BLEND);
