@@ -29,7 +29,7 @@ public class MainMenu {
 			CSGame.currentBackground.render();
 			start.update();
 			for (Button button : CSGame.buttons) {
-//				button.update();
+				button.update();
 			}
 			
 			Display.update();
