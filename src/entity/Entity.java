@@ -40,6 +40,14 @@ public abstract class Entity {
 		this(x, y, height, width, null);
 	}
 	
+	/**
+	 * Basic Entity
+	 * @param x
+	 * @param y
+	 * @param width
+	 * @param height
+	 * @param textureLocation
+	 */
 	public Entity(int x, int y, int width, int height, String textureLocation) {
 		this.x = x;
 		this.y = y;
@@ -78,6 +86,22 @@ public abstract class Entity {
 		this.textureLocation = "resources/" + textureLocation + ".png";
 	}
 
+	public void loadTexture(){
+		if (this.getTextureLocation() == null) {
+			System.out.println("Missing Texture for " + this.getClass());
+			this.setTextureLocation("MissingTexture");
+		}
+		
+		try {
+			texture = TextureLoader.getTexture("PNG", ResourceLoader.getResourceAsStream(this.getTextureLocation()));
+		}	
+		catch(IOException e){
+			e.printStackTrace();
+			Display.destroy();
+			System.exit(0);
+		}	
+	}
+
 	public int getX(){ 
 		return this.x;
 	}
@@ -106,23 +130,6 @@ public abstract class Entity {
 		this.x = newX;
 		this.y = newY;
 	}
-	
-	public void loadTexture(){
-		if (this.getTextureLocation() == null) {
-			System.out.println("Missing Texture for " + this.getClass());
-			this.setTextureLocation("MissingTexture");
-		}
-		
-		try {
-			texture = TextureLoader.getTexture("PNG", ResourceLoader.getResourceAsStream(this.getTextureLocation()));
-		}	
-		catch(IOException e){
-			e.printStackTrace();
-			Display.destroy();
-			System.exit(0);
-		}	
-	}
-	
 	
 	public void render(){ 
 		
