@@ -32,7 +32,7 @@ public abstract class Entity {
 		this.y = y;
 		setTextureLocation(textureLocation);
 		this.loadTexture();
-		this.width = texture.getImageWidth();
+		this.width = texture.getWidth();
 		this.height = texture.getHeight();
 	}
 	
@@ -132,12 +132,12 @@ public abstract class Entity {
 	}
 	
 	public void render(){ 
-		
+
 		Color.white.bind();
 		texture.bind();
 		
 		GL11.glBegin(GL11.GL_QUADS);
-		
+		{
 			GL11.glTexCoord2f(0,0);
 			GL11.glVertex2f(x,y);
 			GL11.glTexCoord2f(1,0);
@@ -146,8 +146,8 @@ public abstract class Entity {
 			GL11.glVertex2f(x+width,y+height);
 			GL11.glTexCoord2f(0,1);
 			GL11.glVertex2f(x,y+height);
-		
-		GL11.glEnd();
+		}
+			GL11.glEnd();
 		
 	}
 	

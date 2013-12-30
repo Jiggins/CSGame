@@ -7,7 +7,6 @@ import org.lwjgl.opengl.GL11;
 
 import world.BGround;
 import entity.Character;
-import entity.buttons.StateButton;
 
 public class Game {
 	public static BGround main = new BGround("MissingTexture");
@@ -26,8 +25,9 @@ public class Game {
 			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 			
 			//CSGame.currentBackground.render();
-			//TODO get the character to render on top of background
+			//TODO get the character to render
 			player.update();
+			
 			Display.update();
 			
 			if(Display.isCloseRequested()){

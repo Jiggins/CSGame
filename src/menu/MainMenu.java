@@ -27,7 +27,7 @@ public class MainMenu {
 			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 			
 			CSGame.currentBackground.render();
-			start.update();
+			//start.update();
 			for (Button button : CSGame.buttons) {
 				button.update();
 			}
