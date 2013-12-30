@@ -17,7 +17,7 @@ public class MainMenu {
 	public static void startup(){
 		CSGame.currentBackground = menu;
 		CSGame.currentBackground.loadTexture();
-		start = new StateButton(15, 15, States.Closing);
+		start = new StateButton(15, 15, States.Game);
 	}
 
 	public static void loop(){

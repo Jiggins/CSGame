@@ -10,7 +10,6 @@ import org.lwjgl.opengl.Display;
 
 import world.BGround;
 
-import entity.Character;
 import entity.buttons.Button;
 
 public class CSGame {
@@ -29,11 +28,11 @@ public class CSGame {
 			
 			case Main_Menu: 
 				MainMenu.startup();
-				Character.player.startup();
 				MainMenu.loop();
 				break;
 			
 			case Game:
+				Game.startup();
 				Game.loop();
 				break;
 				

@@ -7,23 +7,27 @@ import org.lwjgl.opengl.GL11;
 
 import world.BGround;
 import entity.Character;
+import entity.buttons.StateButton;
 
 public class Game {
 	public static BGround main = new BGround("MissingTexture");
-
+	private static Character player;
+	
+	public static void startup(){
+		CSGame.currentBackground = main;
+		player = new Character(100, 100, "NUIMaynoothLogo");
+	}
+	
 	public static void loop(){	
 		
-		CSGame.currentBackground = main;
 		while(true){
-			
 			
 			GL11.glClearColor(0f, 0f, 0f, 0f);
 			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 			
-			CSGame.currentBackground.render();
+			//CSGame.currentBackground.render();
 			//TODO get the character to render on top of background
-			Character.player.render();
-			Character.player.update();
+			player.update();
 			Display.update();
 			
 			if(Display.isCloseRequested()){
