@@ -7,6 +7,10 @@ import org.lwjgl.opengl.GL11;
 
 import world.BGround;
 import entity.Character;
+import entity.buttons.StateButton;
+
+
+//FIXME cannot render any entities when in Game state!
 
 public class Game {
 	public static BGround main = new BGround("MissingTexture");
@@ -27,6 +31,7 @@ public class Game {
 			//CSGame.currentBackground.render();
 			//TODO get the character to render
 			player.update();
+			
 			
 			Display.update();
 			

@@ -39,10 +39,6 @@ public class MainMenu {
 				break;
 			}
 			
-			if(false /*button is pressed*/){
-				CSGame.state = States.Game;
-				break;
-			}
 		}
 		
 		
