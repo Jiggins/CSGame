@@ -4,7 +4,9 @@ import main.CSGame;
 
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
+import org.lwjgl.opengl.GL11;
 
+import static org.lwjgl.opengl.GL11.*;
 import entity.Entity;
 
 public class Button extends Entity {
@@ -29,7 +31,7 @@ public class Button extends Entity {
 	 * @param text
 	 */
 	public Button(int x, int y, int width, int height, String text) {
-		super(x, y, width, height, "Button");
+		super(x, y, width, height, null);
 		this.text = text;
 		CSGame.buttons.add(this);
 	}
@@ -38,6 +40,7 @@ public class Button extends Entity {
 	public void update() {
 		this.render();
 		if (inBounds()) {
+			mouseOver();
 			if(Mouse.isButtonDown(0)) {
 				System.out.println("Clicked");
 				this.click();
@@ -51,6 +54,10 @@ public class Button extends Entity {
 	public void click() {
 		System.out.println("Clicked on " + this.text);
 	}
+	
+	public void mouseOver() {
+		
+	}
 
 	/**
 	 * @return true if mouse is over Button
@@ -61,5 +68,20 @@ public class Button extends Entity {
 			return true;
 		}
 		return false;
+	}
+	
+	public void render() {
+		
+		glBegin(GL_QUADS);
+//			GL11.glEnable(GL11.GL_BLEND);
+			
+			GL11.glColor3f(1, 1, 1);
+			GL11.glVertex2f(x, y); // Upper-left
+			GL11.glVertex2f(x + width, y); //Upper-right
+			GL11.glVertex2f(x + width, y + height); //Bottom-right
+			GL11.glVertex2f(x, y + height); //Bottom-left
+		
+//		GL11.glDisable(GL11.GL_BLEND);
+		glEnd();
 	}
 }
