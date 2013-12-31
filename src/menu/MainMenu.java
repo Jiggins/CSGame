@@ -24,9 +24,6 @@ public class MainMenu {
 
 		start = new StateButton(16, 16, States.Game);
 		close = new StateButton(16, 64, States.Closing);
-		
-//		player = new Character(100, 100, 100, 100, "NUIMaynoothLogo");
-		player = new Character(100, 100, "NUIMaynoothLogo");
 	}
 
 	public static void loop(){
@@ -42,9 +39,7 @@ public class MainMenu {
 				entity.update();
 			}
 			
-			player.update();
-			
-			Display.sync(60);
+			Display.sync(20);
 			Display.update();
 			
 			if(Display.isCloseRequested()){

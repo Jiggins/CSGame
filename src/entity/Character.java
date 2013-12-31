@@ -19,6 +19,7 @@ public class Character extends Entity{
 			super(x, y, width, height, textureLocation);
 		}
 		
+		
 		@Override
 		public void update() {
 			
@@ -26,7 +27,6 @@ public class Character extends Entity{
 		
 			if (Keyboard.isKeyDown(Keyboard.KEY_LEFT)) {
 				this.moveToLeft();
-				System.out.println("MovedLeft");
 			}
 			if (Keyboard.isKeyDown(Keyboard.KEY_RIGHT)) {
 				this.moveToRight();
@@ -44,27 +44,33 @@ public class Character extends Entity{
 
 		public void moveToLeft(){
 			if(x > 0){
-				setPosition(this.x - 10, this.y);
+				setPosition(this.x - 4, this.y);
 			}
 		}
 		
 		public void moveToRight(){
 			if(x < 640 - this.getTexture().getImageWidth()){
-				setPosition(this.x + 10, this.y);
+				setPosition(this.x + 4, this.y);
 			}
 		}
 		
 		public void moveUp(){
 			if(y > 0){
-				setPosition(this.x, this.y - 10);
+				setPosition(this.x, this.y - 4);
 			}
 		}
 		
 		public void moveDown(){
 			if(y < 480 - this.getTexture().getImageHeight()){
-				setPosition(this.x, this.y + 10);
+				setPosition(this.x, this.y + 4);
 			}
 		}
+		
+		/**
+		 * Move the character to this position on screen
+		 * @param (x position , y position)
+		 * 
+		 */
 		
 	    public void warpTo(int x, int y) {
 	        this.x = x;
