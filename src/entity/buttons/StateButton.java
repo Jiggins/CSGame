@@ -2,6 +2,7 @@ package entity.buttons;
 
 import main.CSGame;
 import menu.States;
+import utils.Colour;
 
 public class StateButton extends Button {
 	
@@ -9,6 +10,11 @@ public class StateButton extends Button {
 
 	public StateButton(int x, int y, States state) {
 		super(x, y);
+		this.state = state;
+	}
+	
+	public StateButton(int x, int y, Colour colour, States state) {
+		super(x, y, colour);
 		this.state = state;
 	}
 

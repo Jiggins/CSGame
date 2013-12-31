@@ -5,6 +5,7 @@ import main.CSGame;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 
+import utils.Colour;
 import utils.Debug;
 import world.BGround;
 import entity.Character;
@@ -14,16 +15,15 @@ import entity.buttons.StateButton;
 public class MainMenu {
 	
 	public static BGround menu = new BGround("Menu");
-	private static StateButton start;
-	private static StateButton close;
 	private static Character player;
 	
 	public static void startup(){
 		CSGame.currentBackground = menu;
 		CSGame.currentBackground.loadTexture();
 
-		start = new StateButton(16, 16, States.Game);
-		close = new StateButton(16, 64, States.Closing);
+		StateButton start = new StateButton(16, 16, States.Game);
+		StateButton close = new StateButton(16, 64, States.Closing);
+		StateButton threeDeeTest = new StateButton(16, 112, Colour.BLUE, States.ThreeDeeTest);
 		
 //		player = new Character(100, 100, 100, 100, "NUIMaynoothLogo");
 		player = new Character(100, 100, "NUIMaynoothLogo");
@@ -43,7 +43,7 @@ public class MainMenu {
 			
 			player.update();
 			
-			Display.sync(2);
+			Display.sync(60);
 			Display.update();
 			
 			if(Display.isCloseRequested()){
