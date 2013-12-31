@@ -5,6 +5,7 @@ import main.CSGame;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 
+import entity.Character;
 import entity.buttons.Button;
 import entity.buttons.StateButton;
 import world.BGround;
@@ -13,11 +14,13 @@ public class MainMenu {
 	
 	public static BGround menu = new BGround("Menu");
 	private static StateButton start;
+	private static Character player;
 	
 	public static void startup(){
 		CSGame.currentBackground = menu;
 		CSGame.currentBackground.loadTexture();
 		start = new StateButton(15, 15, States.Game);
+		player = new Character(100, 100, "NUIMaynoothLogo");
 	}
 
 	public static void loop(){
@@ -31,6 +34,7 @@ public class MainMenu {
 			for (Button button : CSGame.buttons) {
 				button.update();
 			}
+			player.update();
 			
 			Display.update();
 			
