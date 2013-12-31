@@ -1,14 +1,19 @@
 package entity.buttons;
 
-import java.util.Random;
+import static org.lwjgl.opengl.GL11.GL_QUADS;
+import static org.lwjgl.opengl.GL11.glBegin;
+import static org.lwjgl.opengl.GL11.glColor3f;
+import static org.lwjgl.opengl.GL11.glDisable;
+import static org.lwjgl.opengl.GL11.glEnable;
+import static org.lwjgl.opengl.GL11.glEnd;
+import static org.lwjgl.opengl.GL11.glVertex2f;
 
-import main.CSGame;
+import java.util.Random;
 
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 
-import static org.lwjgl.opengl.GL11.*;
 import entity.Entity;
 
 /**
@@ -62,6 +67,9 @@ public class Button extends Entity {
 		System.out.println("Clicked on " + this.text);
 	}
 	
+	/**
+	 * Called when mouse is over the Button.
+	 */
 	public void mouseOver() {
 		
 	}

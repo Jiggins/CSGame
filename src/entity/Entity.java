@@ -10,7 +10,9 @@ import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 import org.newdawn.slick.util.ResourceLoader;
 
-
+/**
+ * Entity Class
+ */
 public abstract class Entity {
 	
 	private Texture texture;
@@ -20,6 +22,7 @@ public abstract class Entity {
 	public float height;
 	public float width;
 	
+	/** List of all active entities that need to be updated. */
 	public static ArrayList<Entity> entities = new ArrayList<Entity>();
 
 	public Entity() {

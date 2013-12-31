@@ -1,5 +1,5 @@
-ECHO Compiling..
-javac -d bin -sourcepath src -classpath lib/jars/lwjgl-2.9.0.jar:lib/jars/LeapJava.jar:lib/jars/slick-util.jar src/CSGame.java 
+echo Compiling..
+javac -d bin -sourcepath src -classpath lib/jars/lwjgl.jar:lib/jars/lwjgl_util.jar:lib/jars/LeapJava.jar:lib/jars/slick-util.jar src/main/CSGame.java 
 cd bin
-ECHO Launching Game..
-java -cp :../lib/jars/LeapJava.jar:../lib/jars/lwjgl-2.9.0.jar:../lib/jars/slick-util.jar -Djava.library.path=../lib/natives/ CSGame
+echo Launching Game..
+java -cp :../lib/jars/LeapJava.jar:../lib/jars/lwjgl.jar:../lib/jars/lwjgl_util.jar:../lib/jars/slick-util.jar -Djava.library.path=../lib/natives/lwjgl:../lib/natives/Leap main.CSGame
