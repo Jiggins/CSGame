@@ -35,7 +35,7 @@ public class Closing {
 		}
 		
 		Display.destroy();
-		System.exit(0);
+		System.exit(1);
 		
 		
 	}
