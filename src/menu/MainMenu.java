@@ -17,6 +17,7 @@ public class MainMenu {
 	public static BGround menu = new BGround("Menu");
 	private static Character player;
 	
+	@SuppressWarnings("unused")
 	public static void startup(){
 		CSGame.currentBackground = menu;
 		CSGame.currentBackground.loadTexture();

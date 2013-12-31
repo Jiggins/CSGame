@@ -42,7 +42,7 @@ public class ThreeDeeTest {
                     random.nextInt(200) - 200);
         }
         // The speed in which the "camera" travels
-        float speed = 0.0f;
+        speed = 0.0f;
 	}
 	
 	public static void loop() {

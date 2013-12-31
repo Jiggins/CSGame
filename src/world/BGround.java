@@ -23,6 +23,7 @@ public class BGround{
 		this.loadTexture();
 	}
 	
+	@SuppressWarnings("unused")
 	public BGround addDoor(int x, int y){
 		Door door  = new Door(x, y);
 		return this;

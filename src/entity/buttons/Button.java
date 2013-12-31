@@ -8,8 +8,6 @@ import static org.lwjgl.opengl.GL11.glEnable;
 import static org.lwjgl.opengl.GL11.glEnd;
 import static org.lwjgl.opengl.GL11.glVertex2f;
 
-import java.util.Random;
-
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
@@ -28,7 +26,7 @@ public class Button extends Entity {
 	private Colour colour;
 
 	public Button(int x, int y) {
-		this(x, y, 64, 32, "MissingTexture");
+		this(x, y, 64, 32, null);
 	}
 	
 	public Button(int x, int y, Colour colour) {
@@ -74,7 +72,7 @@ public class Button extends Entity {
 				this.click();
 			}
 		}
-		else render(Colour.LIGHT_BLUE);
+		else render(colour);
 	}
 
 	/**
@@ -101,7 +99,7 @@ public class Button extends Entity {
 		}
 		return false;
 	}
-		
+
 	public void render(Colour colour) {
 		glBegin(GL_QUADS);
 		glEnable(GL11.GL_BLEND);
