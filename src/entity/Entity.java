@@ -154,6 +154,7 @@ public abstract class Entity {
 			GL11.glVertex2f(x,y+height);
 		}
 			GL11.glEnd();
+			GL11.glFlush();
 		
 	}
 	

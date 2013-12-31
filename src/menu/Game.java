@@ -29,7 +29,7 @@ public class Game {
 			GL11.glClearColor(0f, 0f, 0f, 0f);
 			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 			
-			//CSGame.currentBackground.render();
+			CSGame.currentBackground.render();
 			//TODO get the character to render
 			player.update();
 			
