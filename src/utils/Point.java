@@ -2,19 +2,26 @@ package utils;
 
 public class Point {
 	
-	private int x;
-	private int y;
+	public final float x;
+	public final float y;
+	public float z;
 	
-	public Point(int x, int y){
+	public Point(float x, float y){
 		this.x = x;
 		this.y = y;
 	}
 	
-	public int getX(){
+	public Point(float x, float y, float z) {
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
+	
+	public float getX(){
 		return x;
 	}
 	
-	public int getY(){
+	public float getY(){
 		return y;
 	}
 }

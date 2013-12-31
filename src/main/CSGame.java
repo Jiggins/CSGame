@@ -1,15 +1,13 @@
 package main;
-import java.util.ArrayList;
-
 import menu.Closing;
 import menu.Game;
 import menu.MainMenu;
 import menu.States;
+import menu.ThreeDeeTest;
 
 import org.lwjgl.opengl.Display;
 
 import world.BGround;
-import entity.buttons.Button;
 
 public class CSGame {
 	
@@ -34,6 +32,11 @@ public class CSGame {
 				Game.startup();
 				Game.loop();
 				break;
+				
+			case ThreeDeeTest:
+				ThreeDeeTest.startup();
+				ThreeDeeTest.loop();
+				ThreeDeeTest.stop();
 				
 			case Closing:
 				Closing.loop();

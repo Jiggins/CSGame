@@ -29,13 +29,14 @@ public class Closing {
 				GL11.glDisable(GL11.GL_BLEND);
 			GL11.glEnd();
 			
+			Display.sync(60);
 			Display.update();
 			x++;
 			y = y + .001f;
 		}
 		
 		Display.destroy();
-		System.exit(1);
+		System.exit(0);
 		
 		
 	}
