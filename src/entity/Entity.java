@@ -1,6 +1,7 @@
 package entity;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
@@ -18,6 +19,8 @@ public abstract class Entity {
 	public int y;
 	public float height;
 	public float width;
+	
+	public static ArrayList<Entity> entities = new ArrayList<Entity>();
 
 	public Entity() {
 		this(15, 15, 16, 16, null);
@@ -34,6 +37,7 @@ public abstract class Entity {
 		this.loadTexture();
 		this.width = texture.getWidth();
 		this.height = texture.getHeight();
+		entities.add(this);
 	}
 	
 	public Entity(int x, int y, int width, int height) {
@@ -60,7 +64,9 @@ public abstract class Entity {
 	/**
 	 * Called every tick
 	 */
-	public abstract void update();
+	public void update() {
+		render();
+	}
 	
 	/**
 	 * False if the player can walk through the Entity.

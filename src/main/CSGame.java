@@ -9,13 +9,11 @@ import menu.States;
 import org.lwjgl.opengl.Display;
 
 import world.BGround;
-
 import entity.buttons.Button;
 
 public class CSGame {
 	
 	public static BGround currentBackground;
-	public static ArrayList<Button> buttons = new ArrayList<Button>();
 	
 	public static States state = States.Main_Menu;
 
@@ -29,6 +27,7 @@ public class CSGame {
 			case Main_Menu: 
 				MainMenu.startup();
 				MainMenu.loop();
+				MainMenu.stop();
 				break;
 			
 			case Game:

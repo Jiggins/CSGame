@@ -40,12 +40,12 @@ public class Button extends Entity {
 	public Button(int x, int y, int width, int height, String text) {
 		super(x, y, width, height, null);
 		this.text = text;
-		CSGame.buttons.add(this);
+		Entity.entities.add(this);
 	}
 	
 	@Override
 	public void update() {
-		this.render();
+		render();
 		if (inBounds()) {
 			mouseOver();
 			if(Mouse.isButtonDown(0)) {

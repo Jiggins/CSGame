@@ -5,6 +5,7 @@ import main.CSGame;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 
+import utils.Debug;
 import world.BGround;
 import entity.Character;
 import entity.buttons.StateButton;
@@ -39,6 +40,7 @@ public class Game {
 				CSGame.state = States.Closing;
 				break;
 			}
-		}	
+			Debug.debugLoop();
+		}
 	}
 }

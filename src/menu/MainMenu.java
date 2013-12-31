@@ -5,19 +5,24 @@ import main.CSGame;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 
+import utils.Debug;
+import world.BGround;
+import entity.Entity;
 import entity.buttons.Button;
 import entity.buttons.StateButton;
-import world.BGround;
 
 public class MainMenu {
 	
 	public static BGround menu = new BGround("Menu");
 	private static StateButton start;
+	private static StateButton close;
 	
 	public static void startup(){
 		CSGame.currentBackground = menu;
 		CSGame.currentBackground.loadTexture();
-		start = new StateButton(15, 15, States.Game);
+		start = new StateButton(16, 16, States.Game);
+		close = new StateButton(16, 64, States.Closing);
+		
 	}
 
 	public static void loop(){
@@ -28,26 +33,26 @@ public class MainMenu {
 			
 			CSGame.currentBackground.render();
 			//start.update();
-			for (Button button : CSGame.buttons) {
-				button.update();
+			
+			for (Entity entity : Entity.entities) {
+				entity.update();
 			}
 			
+			Display.sync(60);
 			Display.update();
 			
 			if(Display.isCloseRequested()){
 				CSGame.state = States.Closing;
 				break;
 			}
-			
+			Debug.debugLoop();
 		}
-		
-		
 	}
 	
-	
-	
-	
-	
-	
-	
+	/**
+	 * Called after gameLoop closes
+	 */
+	public static void stop() {
+		Entity.entities.clear();
+	}
 }
