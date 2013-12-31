@@ -7,9 +7,8 @@ import org.lwjgl.opengl.GL11;
 
 import utils.Debug;
 import world.BGround;
-import entity.Entity;
 import entity.Character;
-import entity.buttons.Button;
+import entity.Entity;
 import entity.buttons.StateButton;
 
 public class MainMenu {
@@ -26,6 +25,7 @@ public class MainMenu {
 		start = new StateButton(16, 16, States.Game);
 		close = new StateButton(16, 64, States.Closing);
 		
+//		player = new Character(100, 100, 100, 100, "NUIMaynoothLogo");
 		player = new Character(100, 100, "NUIMaynoothLogo");
 	}
 
@@ -41,6 +41,7 @@ public class MainMenu {
 			for (Entity entity : Entity.entities) {
 				entity.update();
 			}
+			
 			player.update();
 			
 			Display.sync(60);

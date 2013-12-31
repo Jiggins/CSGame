@@ -35,8 +35,8 @@ public abstract class Entity {
 		this.y = y;
 		setTextureLocation(textureLocation);
 		this.loadTexture();
-		this.width = texture.getWidth();
-		this.height = texture.getHeight();
+		this.width = texture.getImageWidth();
+		this.height = texture.getImageHeight();
 		entities.add(this);
 	}
 	

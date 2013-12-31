@@ -20,6 +20,7 @@ public class Debug {
 			for (Entity entity : Entity.entities) {
 				System.out.println("\tEntity: " + entity.getClass().getSimpleName() + " " + "(" + entity.x + "," + entity.y + ")");
 			}
+			System.out.println();
 		}
 	}
 }

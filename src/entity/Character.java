@@ -15,7 +15,9 @@ public class Character extends Entity{
 			super(x, y, textureLocation);
 		}
 		
-		
+		public Character(int x, int y, int width, int height, String textureLocation) {
+			super(x, y, width, height, textureLocation);
+		}
 		
 		@Override
 		public void update() {
