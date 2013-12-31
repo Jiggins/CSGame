@@ -36,7 +36,6 @@ public class MainMenu {
 			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 			
 			CSGame.currentBackground.render();
-			//start.update();
 			
 			for (Entity entity : Entity.entities) {
 				entity.update();
@@ -44,7 +43,7 @@ public class MainMenu {
 			
 			player.update();
 			
-			Display.sync(60);
+			Display.sync(2);
 			Display.update();
 			
 			if(Display.isCloseRequested()){
