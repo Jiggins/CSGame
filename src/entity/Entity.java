@@ -15,8 +15,8 @@ import org.newdawn.slick.util.ResourceLoader;
  */
 public abstract class Entity {
 	
-	private Texture texture;
-	private String textureLocation;
+	public Texture texture;
+	public String textureLocation;
 	public int x;
 	public int y;
 	public float height;

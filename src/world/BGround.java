@@ -1,26 +1,19 @@
 package world;
 
-import java.io.IOException;
-
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.Color;
-import org.newdawn.slick.opengl.Texture;
-import org.newdawn.slick.opengl.TextureLoader;
-import org.newdawn.slick.util.ResourceLoader;
 
 import entity.Door;
+import entity.Entity;
 
-public class BGround{
-	
-	private Texture texture;
-	private String textureLocation;
+public class BGround extends Entity {
 
 	public static final BGround lab3 = new BGround("MissingTexture");
 	
 	public BGround(String textureLocation){
 		setTextureLocation(textureLocation);
-		this.loadTexture();
+		loadTexture();
 	}
 	
 	@SuppressWarnings("unused")
@@ -28,36 +21,8 @@ public class BGround{
 		Door door  = new Door(x, y);
 		return this;
 	}
-
-	public String getTextureLocation() {
-		return this.textureLocation;
-	}
 	
-	public void setTextureLocation(String textureLocation) {
-		if (textureLocation == null) {
-			this.textureLocation = "resources/MissingTexture.png";
-			return;
-		}
-		this.textureLocation = "resources/" + textureLocation + ".png";
-	}
-
-	public BGround loadTexture(){
-		if (this.getTextureLocation() == null) {
-			System.out.println("Missing Texture for " + this.getClass());
-			this.setTextureLocation("MissingTexture");
-		}
-		
-		try {
-			texture = TextureLoader.getTexture("PNG", ResourceLoader.getResourceAsStream(this.getTextureLocation()));
-		}	
-		catch(IOException e){
-			e.printStackTrace();
-			Display.destroy();
-			System.exit(0);
-		}
-		return this;
-	}
-
+	@Override
 	public void render(){ 
 		
 		Color.white.bind();
