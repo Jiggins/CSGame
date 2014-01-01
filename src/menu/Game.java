@@ -9,9 +9,6 @@ import utils.Debug;
 import world.BGround;
 import entity.Character;
 
-
-//FIXME cannot render any entities when in Game state!
-
 public class Game {
 	public static BGround main = new BGround("MissingBackground");
 	private static Character player;
@@ -29,7 +26,6 @@ public class Game {
 			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 			
 			CSGame.currentBackground.render();
-			//TODO get the character to render
 			player.update();
 			
 			
