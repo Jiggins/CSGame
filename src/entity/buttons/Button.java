@@ -65,14 +65,14 @@ public class Button extends Entity {
 	@Override
 	public void update() {	
 		if (inBounds()) {
-			render(Colour.BLUE);
+			render(colour);
 			mouseOver();
 			if(Mouse.isButtonDown(0)) {
 				System.out.println("Clicked");
 				this.click();
 			}
 		}
-		else render(colour);
+		else render(Colour.LIGHT_BLUE);
 	}
 
 	/**
