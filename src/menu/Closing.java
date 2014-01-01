@@ -13,7 +13,7 @@ public class Closing {
 		int x = 0;
 		float y = 0;
 		
-		while(x < 1000 /* !start.click() , start button not pressed*/){
+		while(x < 100 /* !start.click() , start button not pressed*/){
 			
 			CSGame.currentBackground.render();
 			
@@ -32,7 +32,7 @@ public class Closing {
 			Display.sync(60);
 			Display.update();
 			x++;
-			y = y + .001f;
+			y = y + .01f;
 		}
 		
 		Display.destroy();

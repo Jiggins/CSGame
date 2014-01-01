@@ -22,12 +22,10 @@ public class MainMenu {
 		CSGame.currentBackground = menu;
 		CSGame.currentBackground.loadTexture();
 
-		StateButton start = new StateButton(16, 16, States.Game);
-		StateButton close = new StateButton(16, 64, States.Closing);
-		StateButton threeDeeTest = new StateButton(16, 112, Colour.BLUE, States.ThreeDeeTest);
+		StateButton start = new StateButton(490, 16, States.Game);
+		StateButton close = new StateButton(490, 64, States.Closing);
+		StateButton threeDeeTest = new StateButton(490, 112, Colour.BLUE, States.ThreeDeeTest);
 		
-//		player = new Character(100, 100, 100, 100, "NUIMaynoothLogo");
-		player = new Character(100, 100, "NUIMaynoothLogo");
 	}
 
 	public static void loop(){
@@ -41,9 +39,7 @@ public class MainMenu {
 			for (Entity entity : Entity.entities) {
 				entity.update();
 			}
-			
-			player.update();
-			
+	
 			Display.sync(60);
 			Display.update();
 			
