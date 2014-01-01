@@ -1,6 +1,7 @@
 package utils;
 
 import org.lwjgl.input.Keyboard;
+import org.lwjgl.input.Mouse;
 
 import entity.Entity;
 
@@ -15,12 +16,20 @@ public class Debug {
 	 * 		E: List of entities.
 	 */
 	public static void debugLoop() {
-		if (Keyboard.isKeyDown(Keyboard.KEY_E)) {
-			System.out.println("Entities:");
-			for (Entity entity : Entity.entities) {
-				System.out.println("\tEntity: " + entity.getClass().getSimpleName() + " " + "(" + entity.x + "," + entity.y + ")");
+		while (Keyboard.next()) {
+			if (Keyboard.isKeyDown(Keyboard.KEY_E)) {
+				System.out.println("Entities:");
+				for (Entity entity : Entity.entities) {
+					System.out.println("\tEntity: " + entity.getClass().getSimpleName() + " " + "(" + entity.x + "," + entity.y + ")");
+				}
+				System.out.println();
+			}			
+		}
+		
+		while (Mouse.next()) {
+			if (Mouse.isButtonDown(1)) {
+				System.out.println("Mouse: X: " + Mouse.getX() + "Y: " + Mouse.getY());
 			}
-			System.out.println();
 		}
 	}
 }

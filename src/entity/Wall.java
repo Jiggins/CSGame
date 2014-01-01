@@ -2,6 +2,7 @@ package entity;
 
 import utils.Point;
 
+@SuppressWarnings("unused")
 public class Wall extends Entity{
 	
 	private Point start;
