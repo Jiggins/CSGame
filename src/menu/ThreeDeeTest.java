@@ -46,7 +46,9 @@ public class ThreeDeeTest {
 	}
 	
 	public static void loop() {
+		
 		while (CSGame.state == States.ThreeDeeTest) {
+			System.out.println("loop");
 			// Clear the screen of its filthy contents
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -87,6 +89,8 @@ public class ThreeDeeTest {
             Debug.debugLoop();
             if(Display.isCloseRequested()){
 				CSGame.state = States.Closing;
+				Display.destroy();
+				System.exit(0);
 				break;
 			}
 

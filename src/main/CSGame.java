@@ -36,7 +36,7 @@ public class CSGame {
 			case ThreeDeeTest:
 				ThreeDeeTest.startup();
 				ThreeDeeTest.loop();
-				ThreeDeeTest.stop();
+				//ThreeDeeTest.stop();
 				
 			case Closing:
 				Closing.loop();
