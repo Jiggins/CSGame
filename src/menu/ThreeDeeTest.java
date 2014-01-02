@@ -16,6 +16,7 @@ import utils.Point;
 public class ThreeDeeTest {
 	private static float speed;
 	private static Point [] points;
+	public static Random random = new Random();
 
 	public static void startup() {
 		glMatrixMode(GL_PROJECTION);
@@ -30,8 +31,7 @@ public class ThreeDeeTest {
         // To make sure the points closest to the camera are shown in front of the points that are farther away.
         glEnable(GL_DEPTH_TEST);
         
-        points = new Point[1000];
-        Random random = new Random();
+        points = new Point[10000];
         // Iterate of every array index
         for (int i = 0; i < points.length; i++) {
             // Set the point at the array index to 
@@ -48,7 +48,6 @@ public class ThreeDeeTest {
 	public static void loop() {
 		
 		while (CSGame.state == States.ThreeDeeTest) {
-			System.out.println("loop");
 			// Clear the screen of its filthy contents
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -58,9 +57,13 @@ public class ThreeDeeTest {
             // Begin drawing points
             glBegin(GL_POINTS);
             // Iterate of every point
+            
+            
             for (Point p : points) {
                 // Draw the point at its coordinates
+            	glColor3f(1.0f, 0f, 1.0f);
                 glVertex3f(p.x, p.y, p.z);
+                
             }
             // Stop drawing points
             glEnd();
@@ -86,14 +89,13 @@ public class ThreeDeeTest {
                 }
             }
             
-            Debug.debugLoop();
+            
             if(Display.isCloseRequested()){
 				CSGame.state = States.Closing;
-				Display.destroy();
-				System.exit(0);
 				break;
 			}
 
+            Debug.debugLoop();
             // Update the display
             Display.update();
             // Wait until the frame-rate is 60fps

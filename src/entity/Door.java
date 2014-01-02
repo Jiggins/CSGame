@@ -34,4 +34,5 @@ public class Door extends Entity{
 		return y;
 	}
 	
+	
 }
