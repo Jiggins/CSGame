@@ -67,13 +67,11 @@ public class Button extends Entity {
 		if (inBounds()) {
 			render(colour);
 			mouseOver();
-			while (Mouse.next()) {
 				if(Mouse.isButtonDown(0)) {
 					System.out.println("Clicked");
 					this.click();
 				}
 			}
-		}
 		else render(Colour.LIGHT_BLUE);
 	}
 

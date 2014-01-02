@@ -37,13 +37,13 @@ public class Game {
 			GL11.glClearColor(0f, 0f, 0f, 0f);
 			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 			
-			switch(room){
-			
-			case Callan_Lab_4:  break;
-			case Callan_Lab_3: break;
-			case Callan_Corridor: break;
-			
-			}
+//			switch(room){
+//			
+//			case Callan_Lab_4:  break;
+//			case Callan_Lab_3: break;
+//			case Callan_Corridor: break;
+//			
+//			}
 			
 			CSGame.currentBackground.render();
 			player.update();
