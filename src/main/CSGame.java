@@ -2,6 +2,7 @@ package main;
 import org.lwjgl.opengl.Display;
 
 import states.Closing;
+import states.FirstPerson;
 import states.Game;
 import states.Menu;
 import states.States;
@@ -36,6 +37,12 @@ public class CSGame {
 				ThreeDeeTest.startup();
 				ThreeDeeTest.loop();
 				//ThreeDeeTest.stop();
+				break;	
+			
+			case FirstPerson:
+				FirstPerson.startup();
+				FirstPerson.loop();
+				FirstPerson.stop();
 				
 			case Closing:
 				Closing.loop();

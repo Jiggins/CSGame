@@ -4,6 +4,7 @@ public class Door extends Entity{
 	
 	private int x;
 	private int y;
+	@SuppressWarnings("unused")
 	private int z;
 	//TODO create door texture, default texture
 	String textureLocation;

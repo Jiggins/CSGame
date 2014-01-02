@@ -8,23 +8,21 @@ import org.lwjgl.opengl.GL11;
 import utils.Colour;
 import utils.Debug;
 import world.BGround;
-import entity.Character;
 import entity.Entity;
 import entity.buttons.StateButton;
 
 public class Menu {
 	
 	public static BGround menu = new BGround("Menu");
-	private static Character player;
 	
-	@SuppressWarnings("unused")
 	public static void startup(){
 		CSGame.currentBackground = menu;
 		CSGame.currentBackground.loadTexture();
 
-		StateButton start = new StateButton(490, 16, States.Game);
-		StateButton close = new StateButton(490, 64, States.Closing);
-		StateButton threeDeeTest = new StateButton(490, 112, Colour.BLUE, States.ThreeDeeTest);
+		new StateButton(490, 16, States.Game);
+		new StateButton(490, 64, States.Closing);
+		new StateButton(490, 112, Colour.BLUE, States.ThreeDeeTest);
+		new StateButton(490, 160, Colour.BLUE, States.FirstPerson);
 		
 	}
 

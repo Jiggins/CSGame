@@ -34,7 +34,7 @@ public class CreateDisplay {
 		
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
-		glOrtho(0, Display.getWidth(), Display.getHeight(), 0, 1, -1);
+		glOrtho(0, (float )Display.getWidth(), (float) Display.getHeight(), 0, 1, -1);
 		glMatrixMode(GL_MODELVIEW);
 		
 		GL11.glClearColor(0.0f, 0.0f, 0.0f, 0.0f); 

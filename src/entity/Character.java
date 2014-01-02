@@ -2,8 +2,6 @@ package entity;
 
 import org.lwjgl.input.Keyboard;
 
-import utils.Colour;
-
 public class Character extends Entity{
 	
 	
