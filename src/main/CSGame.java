@@ -1,12 +1,11 @@
 package main;
-import menu.Closing;
-import menu.Game;
-import menu.MainMenu;
-import menu.States;
-import menu.ThreeDeeTest;
-
 import org.lwjgl.opengl.Display;
 
+import states.Closing;
+import states.Game;
+import states.Menu;
+import states.States;
+import states.ThreeDeeTest;
 import world.BGround;
 
 public class CSGame {
@@ -23,9 +22,9 @@ public class CSGame {
 			switch(state){
 			
 			case Main_Menu: 
-				MainMenu.startup();
-				MainMenu.loop();
-				MainMenu.stop();
+				Menu.startup();
+				Menu.loop();
+				Menu.stop();
 				break;
 			
 			case Game:

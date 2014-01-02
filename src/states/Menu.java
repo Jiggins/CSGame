@@ -1,4 +1,4 @@
-package menu;
+package states;
 
 import main.CSGame;
 
@@ -12,7 +12,7 @@ import entity.Character;
 import entity.Entity;
 import entity.buttons.StateButton;
 
-public class MainMenu {
+public class Menu {
 	
 	public static BGround menu = new BGround("Menu");
 	private static Character player;

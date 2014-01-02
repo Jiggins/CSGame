@@ -1,7 +1,7 @@
 package entity.buttons;
 
 import main.CSGame;
-import menu.States;
+import states.States;
 import utils.Colour;
 
 public class StateButton extends Button {

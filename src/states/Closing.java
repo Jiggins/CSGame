@@ -1,4 +1,4 @@
-package menu;
+package states;
 
 import main.CSGame;
 
