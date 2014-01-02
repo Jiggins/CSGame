@@ -10,8 +10,6 @@ import world.BGround;
 import world.Room.Rooms;
 import entity.Character;
 
-
-
 public class Game {
 	
 	public static BGround main = new BGround("MissingBackground");
