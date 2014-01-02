@@ -61,7 +61,7 @@ public class ThreeDeeTest {
             
             for (Point p : points) {
                 // Draw the point at its coordinates
-            	glColor3f(1.0f, 0f, 1.0f);
+            	glColor3f(0.0f, 1f, 0f);
                 glVertex3f(p.x, p.y, p.z);
                 
             }
