@@ -21,11 +21,13 @@ Simple game made for the NUIM Computer Science Department using LWJGL
 - Background transitions.  (Fade to Black, other effects?)
 - Scrolling/switching backgrounds
 - Menu Screen - start/help/credits ect.
-- Walls? Something other then walls?
 - Save system - text file or JSON (Like Sublime Text)
 - Opening Screen
 - Loading Screens? (if they're even needed?)
 - A way to resize the window without it freaking out - Vectors and stuff
+- 3D images
+- 3D rendering, change entites to have a 3rd dimension 
+- Room object, containing all entities in the room and background
 
 
 ## Ideas
