@@ -1,12 +1,10 @@
 package world;
 
+import java.util.ArrayList;
+
 import entity.Entity;
 
-public class Room {
-	
-	public Room(){
-		
-	}
+public abstract class Room {
 	
 	/*
 	 *  Each type of room extends Room
@@ -18,5 +16,17 @@ public class Room {
 	 *  
 	 *  
 	 */
+	public enum Rooms {
+		Callan_Lab_3, Callan_Lab_4, Callan_Corridor;
+	}
 	
+	public Room(){
+		
+	}
+	
+	public abstract ArrayList<Entity> getEntities();
+	
+	public BGround getBGround() {
+		return null;
+	}
 }
