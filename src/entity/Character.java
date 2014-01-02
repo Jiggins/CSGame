@@ -2,6 +2,8 @@ package entity;
 
 import org.lwjgl.input.Keyboard;
 
+import utils.Colour;
+
 public class Character extends Entity{
 	
 	
@@ -37,9 +39,6 @@ public class Character extends Entity{
 			if (Keyboard.isKeyDown(Keyboard.KEY_DOWN)) {
 				this.moveDown();
 			}
-			
-			
-			// TODO Do something on Update - Movement Code
 		}
 
 		public void moveToLeft(){
@@ -49,7 +48,7 @@ public class Character extends Entity{
 		}
 		
 		public void moveToRight(){
-			if(x < 640 - this.getTexture().getImageWidth()){
+			if(x < 640 - this.getCurrentTexture().getImageWidth()){
 				setPosition(this.x + 4, this.y);
 			}
 		}
@@ -61,7 +60,7 @@ public class Character extends Entity{
 		}
 		
 		public void moveDown(){
-			if(y < 480 - this.getTexture().getImageHeight()){
+			if(y < 480 - this.getCurrentTexture().getImageHeight()){
 				setPosition(this.x, this.y + 4);
 			}
 		}

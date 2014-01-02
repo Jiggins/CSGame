@@ -10,8 +10,10 @@ import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 import org.newdawn.slick.util.ResourceLoader;
 
+import utils.Colour;
+
 /**
- * Entity Class
+ * Entity Object
  */
 public abstract class Entity {
 	
@@ -21,9 +23,11 @@ public abstract class Entity {
 	public int y;
 	public float height;
 	public float width;
-	
 	/** List of all active entities that need to be updated. */
 	public static ArrayList<Entity> entities = new ArrayList<Entity>();
+	/** List of all loaded Textures */
+	//TODO implement a way to have multiple textures per Entity.
+	public ArrayList<String> textures;
 
 	public Entity() {
 		this(15, 15, 16, 16, null);
@@ -79,25 +83,44 @@ public abstract class Entity {
 		return true;
 	}
 	
-	public Texture getTexture(){
+	/**
+	 * @return - Texture object.
+	 */
+	public Texture getCurrentTexture(){
 		return this.texture;
 	}
 	
+	public ArrayList<String> getTextures() {
+		return textures;
+	}
+	
+	/**
+	 * Returns the name of the Texture used
+	 * @return
+	 */
 	public String getTextureLocation() {
 		return this.textureLocation;
 	}
 	
+	/**
+	 * Sets the location of the texture used in rendering.
+	 * If there is no texture location specified, it will use a default.
+	 * @param textureLocation - Texture File name, without the .png extension.
+	 */
 	public void setTextureLocation(String textureLocation) {
 		if (textureLocation == null) {
+			System.out.println("Missing Texture for " + this.getClass().getName());
 			this.textureLocation = "resources/MissingTexture.png";
 			return;
 		}
 		this.textureLocation = "resources/" + textureLocation + ".png";
 	}
 
-	public void loadTexture(){
+	/**
+	 * Loads the texture
+	 */
+	public Texture loadTexture(){
 		if (this.getTextureLocation() == null) {
-			System.out.println("Missing Texture for " + this.getClass());
 			this.setTextureLocation("MissingTexture");
 		}
 		
@@ -105,28 +128,46 @@ public abstract class Entity {
 			texture = TextureLoader.getTexture("PNG", ResourceLoader.getResourceAsStream(this.getTextureLocation()));
 		}	
 		catch(IOException e){
+			System.out.println("Not a valid Texture Location: " + getTextureLocation());
 			e.printStackTrace();
 			Display.destroy();
-			System.exit(0);
-		}	
+			System.exit(1);
+		}
+		return texture;
 	}
 
+	/**
+	 * Returns the current X position of the top left corner
+	 * @return x
+	 */
 	public int getX(){ 
 		return this.x;
 	}
 
+	/**
+	 * Returns the current Y position of the top left corner
+	 * @return y
+	 */
 	public int getY(){
 		return this.y;
 	}
 
+	/**
+	 * Returns the height of the Entity
+	 * @return height
+	 */
 	public float getHeight() {
 		return height;
 	}
-
+	
 	public void setHeight(float height) {
 		this.height = height;
 	}
 
+	/**
+	 * Returns the width of the Entity
+	 * @return width
+	 */
 	public float getWidth() {
 		return width;
 	}
@@ -135,11 +176,20 @@ public abstract class Entity {
 		this.width = width;
 	}
 	
-	public void setPosition(int newX, int newY){
-		this.x = newX;
-		this.y = newY;
+	/**
+	 * Sets the position of the Entity
+	 * (Top left corner)
+	 * @param x
+	 * @param y
+	 */
+	public void setPosition(int x, int y){
+		this.x = x;
+		this.y = y;
 	}
 	
+	/**
+	 * Renders the Entity on screen
+	 */
 	public void render(){ 
 
 		Color.white.bind();
@@ -156,9 +206,37 @@ public abstract class Entity {
 			GL11.glTexCoord2f(0,1);
 			GL11.glVertex2f(x,y+height);
 		}
-			GL11.glEnd();
-			GL11.glFlush();
 		
+		GL11.glEnd();
+		GL11.glFlush();
+	}
+	
+	/**
+	 * Renders the Entity with a Texture overlaid with colour 
+	 * @param colour
+	 */
+	public void render(Colour colour) {
+		Color.white.bind();
+		texture.bind();
+		
+		GL11.glBegin(GL11.GL_QUADS);
+		{
+			GL11.glTexCoord2f(0,0);
+			GL11.glColor3f(colour.red, colour.green, colour.blue);
+			GL11.glVertex2f(x,y);
+			GL11.glTexCoord2f(1,0);
+			GL11.glColor3f(colour.red, colour.green, colour.blue);
+			GL11.glVertex2f(x+width,y);
+			GL11.glTexCoord2f(1,1);
+			GL11.glColor3f(colour.red, colour.green, colour.blue);
+			GL11.glVertex2f(x+width,y+height);
+			GL11.glTexCoord2f(0,1);
+			GL11.glColor3f(colour.red, colour.green, colour.blue);
+			GL11.glVertex2f(x,y+height);
+		}
+		
+		GL11.glEnd();
+		GL11.glFlush();
 	}
 	
 	/**

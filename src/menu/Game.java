@@ -10,8 +10,6 @@ import utils.Debug;
 import world.BGround;
 import entity.Character;
 
-
-
 public class Game {
 	public static BGround main = new BGround("MissingBackground");
 	private static Character player;

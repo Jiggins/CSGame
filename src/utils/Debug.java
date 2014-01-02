@@ -3,6 +3,7 @@ package utils;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 
+import display.CreateDisplay;
 import entity.Entity;
 
 /**
@@ -23,7 +24,12 @@ public class Debug {
 					System.out.println("\tEntity: " + entity.getClass().getSimpleName() + " " + "(" + entity.x + "," + entity.y + ")");
 				}
 				System.out.println();
-			}			
+			}
+			
+			if (Keyboard.isKeyDown(Keyboard.KEY_G)) {
+				System.out.println("Resetting OpenGl frame");
+				CreateDisplay.initGL();
+			}
 		}
 		
 		while (Mouse.next()) {
