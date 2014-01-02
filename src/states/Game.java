@@ -5,9 +5,9 @@ import main.CSGame;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 
-import entity.Door;
 import utils.Debug;
 import world.BGround;
+import world.Room.Rooms;
 import entity.Character;
 
 public class Game {
