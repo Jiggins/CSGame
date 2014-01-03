@@ -27,7 +27,7 @@ public class CreateDisplay {
 			Display.destroy();
 		}
 		
-		initGL();
+//		initGL();
 	}
 	
 	public static void initGL(){
