@@ -13,6 +13,7 @@ public class Colour {
 	public static final Colour WHITE 		= new Colour(1, 1, 1);
 	public static final Colour BLUE 		= new Colour((float) 11/255, (float) 76/255, (float) 137/255);
 	public static final Colour LIGHT_BLUE 	= new Colour((float) 3/255, (float) 131/255, (float) 144/255);
+	public static final Colour RED			= new Colour((float) 146/255, (float) 52/255, (float) 48/255);
 	public static final Colour YELLOW		= new Colour((float) 240/255, (float) 173/255, (float) 20/255);
 	
 	public Colour(float red, float green, float blue) {
