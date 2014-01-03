@@ -16,9 +16,13 @@ Simple game made for the NUIM Computer Science Department using LWJGL
 	Tools -> Build System -> CSGame
 	Ctrl + B
 
+## Useful Links
+
+- OpenGL documentation - http://www.opengl.org/sdk/docs/man/
+
 ## Todo List
 - Background - with exits/entrances (DONE)
-- Background transitions.  (Fade to Black, other effects?)
+- Background transitions.  (Fade to Black, other effects?) (DONE)
 - Scrolling/switching backgrounds
 - Menu Screen - start/help/credits ect.
 - Save system - text file or JSON (Like Sublime Text)
