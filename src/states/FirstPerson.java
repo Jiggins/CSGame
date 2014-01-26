@@ -80,9 +80,9 @@ public class FirstPerson {
 	/** The minimal distance from the camera where objects are rendered. */
     private static final float zNear = 0.3f;
     /** The maximal distance from the camera where objects are rendered. */
-    private static final float zFar = 20f;
+    private static final float zFar = 35;
     /** Defines the field of view. */
-    private static final int fov = 68;
+    private static final int fov = 90;
     /** The distance where fog starts appearing. */
     private static final float fogNear = 20;
     /** The distance where the fog stops appearing (fully black here) */
@@ -110,7 +110,7 @@ public class FirstPerson {
 	 private static Vector3f position = new Vector3f(0, 0, 0);
 	    /**
 	     * The rotation of the axis (where to the player looks). The X component stands for the rotation along the x-axis,
-	     * where 0 is dead ahead, 180 is backwards, and 360 is automically set to 0 (dead ahead). The value must be between
+	     * where 0 is dead ahead, 180 is backwards, and 360 is automatically set to 0 (dead ahead). The value must be between
 	     * (including) 0 and 360. The Y component stands for the rotation along the y-axis, where 0 is looking straight
 	     * ahead, -90 is straight up, and 90 is straight down. The value must be between (including) -90 and 90.
 	     */
@@ -148,7 +148,7 @@ public class FirstPerson {
         
         {
             FloatBuffer fogColours = BufferUtils.createFloatBuffer(4);
-            fogColours.put(new float[]{fogColor.red, fogColor.green, fogColor.blue, 1f});
+            fogColours.put(new float[]{Colour.RED.red, Colour.RED.green, Colour.RED.blue, 1f});
             glClearColor(fogColor.red, fogColor.green, fogColor.blue, 1f);
             fogColours.flip();
             glFog(GL_FOG_COLOR, fogColours);
@@ -156,7 +156,7 @@ public class FirstPerson {
             glHint(GL_FOG_HINT, GL_NICEST);
             glFogf(GL_FOG_START, fogNear);
             glFogf(GL_FOG_END, fogFar);
-            glFogf(GL_FOG_DENSITY, 0.005f);
+            glFogf(GL_FOG_DENSITY, 0.001f);
         }
                 
         ceilingDisplayList = glGenLists(1);
