@@ -81,7 +81,7 @@ public class FirstPerson {
     private static final float zNear = 0.3f;
     /** The maximal distance from the camera where objects are rendered. */
     private static final float zFar = 35;
-    /** Defines the field of view. */
+    /** Defines the field of view.  */
     private static final int fov = 90;
     /** The distance where fog starts appearing. */
     private static final float fogNear = 20;
@@ -146,7 +146,7 @@ public class FirstPerson {
         glCullFace(GL_BACK);
         glEnable(GL_FOG);
         
-        {
+        
             FloatBuffer fogColours = BufferUtils.createFloatBuffer(4);
             fogColours.put(new float[]{Colour.RED.red, Colour.RED.green, Colour.RED.blue, 1f});
             glClearColor(fogColor.red, fogColor.green, fogColor.blue, 1f);
@@ -157,7 +157,7 @@ public class FirstPerson {
             glFogf(GL_FOG_START, fogNear);
             glFogf(GL_FOG_END, fogFar);
             glFogf(GL_FOG_DENSITY, 0.001f);
-        }
+            
                 
         ceilingDisplayList = glGenLists(1);
         glNewList(ceilingDisplayList, GL_COMPILE);
@@ -287,7 +287,7 @@ public class FirstPerson {
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			
 			int delta = getDelta();
-			glBindTexture(GL_TEXTURE_2D, floorTexture);
+			//glBindTexture(GL_TEXTURE_2D, floorTexture);
 			
 			glEnable(GL_CULL_FACE);
 			glDisable(GL_DEPTH_TEST);
@@ -575,7 +575,7 @@ public class FirstPerson {
 		}
 		return texture;
 	}
-	
+
 	public static void setTextureLocation(String textureLocation) {
 		if (textureLocation == null) {
 			System.out.println("Missing Texture for " + "FirstPerson");
