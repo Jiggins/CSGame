@@ -51,7 +51,8 @@ public class FirstPerson {
 	private static Texture texture;
 	private static String textureLocation;
 	//GL Display Lists
-	private static int objectDisplayList;
+	//private static int objectDisplayList;
+	private static int objectDisplayTest;
 	private static int floorTexture;
 	private static int wallDisplayList;
 	private static int ceilingDisplayList;
@@ -190,39 +191,83 @@ public class FirstPerson {
         glEndList();
         glColor4f(1, 1, 1, 1);
         
-        objectDisplayList = glGenLists(1);
-        glNewList(objectDisplayList, GL_COMPILE);
+//        objectDisplayList = glGenLists(1);
+//        glNewList(objectDisplayList, GL_COMPILE);
+//        {
+//            double topPoint = 0.75;
+//            glBegin(GL_TRIANGLES);
+//	            glColor4f(1, 1, 0, 1f);
+//	            glVertex3d(0, topPoint, -5);
+//	            glColor4f(0, 0, 1, 1f);
+//	            glVertex3d(-1, -0.75, -4);
+//	            glColor4f(0, 0, 1, 1f);
+//	            glVertex3d(1, -.75, -4);
+//	
+//	            glColor4f(1, 1, 0, 1f);
+//	            glVertex3d(0, topPoint, -5);
+//	            glColor4f(0, 0, 1, 1f);
+//	            glVertex3d(1, -0.75, -4);
+//	            glColor4f(0, 0, 1, 1f);
+//	            glVertex3d(1, -0.75, -6);
+//	
+//	            glColor4f(1, 1, 0, 1f);
+//	            glVertex3d(0, topPoint, -5);
+//	            glColor4f(0, 0, 1, 1f);
+//	            glVertex3d(1, -0.75, -6);
+//	            glColor4f(0, 0, 1, 1f);
+//	            glVertex3d(-1, -.75, -6);
+//	
+//	            glColor4f(1, 1, 0, 1f);
+//	            glVertex3d(0, topPoint, -5);
+//	            glColor4f(0, 0, 1, 1f);
+//	            glVertex3d(-1, -0.75, -6);
+//	            glColor4f(0, 0, 1, 1f);
+//	            glVertex3d(-1, -.75, -4);
+//
+//            glEnd();
+//            glColor4f(1, 1, 1, 1);
+//        }
+//        glEndList();
+        
+        objectDisplayTest = glGenLists(1);
+        glNewList(objectDisplayTest, GL_COMPILE);
         {
             double topPoint = 0.75;
+            //point along z axis
+            double zdistance = -5;
+            //point along along x axis
+            double xdistance = 0;
+     
             glBegin(GL_TRIANGLES);
-	            glColor4f(1, 1, 0, 1f);
-	            glVertex3d(0, topPoint, -5);
-	            glColor4f(0, 0, 1, 1f);
-	            glVertex3d(-1, -0.75, -4);
-	            glColor4f(0, 0, 1, 1f);
-	            glVertex3d(1, -.75, -4);
-	
-	            glColor4f(1, 1, 0, 1f);
-	            glVertex3d(0, topPoint, -5);
-	            glColor4f(0, 0, 1, 1f);
-	            glVertex3d(1, -0.75, -4);
-	            glColor4f(0, 0, 1, 1f);
-	            glVertex3d(1, -0.75, -6);
-	
-	            glColor4f(1, 1, 0, 1f);
-	            glVertex3d(0, topPoint, -5);
-	            glColor4f(0, 0, 1, 1f);
-	            glVertex3d(1, -0.75, -6);
-	            glColor4f(0, 0, 1, 1f);
-	            glVertex3d(-1, -.75, -6);
-	
-	            glColor4f(1, 1, 0, 1f);
-	            glVertex3d(0, topPoint, -5);
-	            glColor4f(0, 0, 1, 1f);
-	            glVertex3d(-1, -0.75, -6);
-	            glColor4f(0, 0, 1, 1f);
-	            glVertex3d(-1, -.75, -4);
+	          
+            glColor4f(1, 1, 0, 1f);
+            glVertex3d(xdistance, topPoint, zdistance); //top
+            glColor4f(0, 0, 1, 1f);
+            glVertex3d(-1, -topPoint, -4); //corner1 
+            glColor4f(0, 0, 1, 1f);
+            glVertex3d(1, -topPoint, -4); //corner2
 
+            glColor4f(1, 1, 0, 1f);
+            glVertex3d(xdistance, topPoint, zdistance); //top
+            glColor4f(0, 0, 1, 1f);
+            glVertex3d(1, -topPoint, -4); //corner2
+            glColor4f(0, 0, 1, 1f);
+            glVertex3d(1, -topPoint, -6); //corner3
+
+            glColor4f(1, 1, 0, 1f);
+            glVertex3d(xdistance, topPoint, zdistance); //top
+            glColor4f(0, 0, 1, 1f);
+            glVertex3d(1, -topPoint, -6); //corner3
+            glColor4f(0, 0, 1, 1f);
+            glVertex3d(-1, -topPoint, -6); //corner4
+
+            glColor4f(1, 1, 0, 1f);
+            glVertex3d(xdistance, topPoint, zdistance); //top
+            glColor4f(0, 0, 1, 1f);
+            glVertex3d(-1, -topPoint, -6); //corner4
+            glColor4f(0, 0, 1, 1f);
+            glVertex3d(-1, -topPoint, -4); //corner1
+            
             glEnd();
             glColor4f(1, 1, 1, 1);
         }
@@ -246,7 +291,8 @@ public class FirstPerson {
 			glEnable(GL_DEPTH_TEST);
 			glDisable(GL_CULL_FACE);
 			glBindTexture(GL_TEXTURE_2D, 0);
-			glCallList(objectDisplayList);
+			//glCallList(objectDisplayList);
+			glCallList(objectDisplayTest);
 			
 			glLoadIdentity();
 			glRotatef(rotation.x, 1, 0, 0);
@@ -482,7 +528,8 @@ public class FirstPerson {
         glDeleteLists(floorDisplayList, 1);
         glDeleteLists(ceilingDisplayList, 1);
         glDeleteLists(wallDisplayList, 1);
-        glDeleteLists(objectDisplayList, 1);
+       // glDeleteLists(objectDisplayList, 1);
+        glDeleteLists(objectDisplayTest, 1);
         Display.destroy();
         System.exit(0);
 		CSGame.state = States.Main_Menu;

@@ -13,7 +13,7 @@ public class CSGame {
 	
 	public static BGround currentBackground;
 	
-	public static States state = States.Main_Menu;
+	public static States state = States.FirstPerson;
 
 	public static void main(String [] args) {
 		display.CreateDisplay.frame();
