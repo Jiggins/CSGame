@@ -18,8 +18,8 @@ public class CSGame {
 
 	public static void main(String [] args) {
 		display.CreateDisplay.frame();
-		Model model = new Model("Glass");
-		model.createModel();
+//		Model model = new Model("Glass");
+//		model.createModel();
 				
 		while(!Display.isCloseRequested()) {
 			
