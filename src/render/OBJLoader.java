@@ -43,7 +43,7 @@ public class OBJLoader {
 				m.faces.add(new Face(vertexIndices, normalIndices));
 			}
 		}
-		
+		reader.close();
 		return m;
 	}
 }

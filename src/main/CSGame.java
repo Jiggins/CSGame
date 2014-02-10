@@ -1,6 +1,7 @@
 package main;
 import org.lwjgl.opengl.Display;
 
+import render.Model;
 import states.Closing;
 import states.FirstPerson;
 import states.Game;
@@ -17,6 +18,8 @@ public class CSGame {
 
 	public static void main(String [] args) {
 		display.CreateDisplay.frame();
+		Model model = new Model("Glass");
+		model.createModel();
 				
 		while(!Display.isCloseRequested()) {
 			
