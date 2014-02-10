@@ -21,17 +21,16 @@ Simple game made for the NUIM Computer Science Department using LWJGL
 - OpenGL documentation - http://www.opengl.org/sdk/docs/man/
 
 ## Todo List
-- Background - with exits/entrances (DONE)
-- Background transitions.  (Fade to Black, other effects?) (DONE)
-- Scrolling/switching backgrounds
+- Blender
+- 2D Sprites - animations
+- Texture for walls etc.
+- Update Entity to accomodate for 3D
 - Menu Screen - start/help/credits ect.
-- Save system - text file or JSON (Like Sublime Text)
-- Opening Screen
-- Loading Screens? (if they're even needed?)
-- A way to resize the window without it freaking out - Vectors and stuff
-- 3D images
-- 3D rendering, change entites to have a 3rd dimension 
+- Opening Screen (FIX)
 - Room object, containing all entities in the room and background
+- Save system - text file or JSON (Like Sublime Text)
+- A way to resize the window without it freaking out - Vectors and stuff
+- Loading Screens? (if they're even needed?)
 
 
 ## Ideas
