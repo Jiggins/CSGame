@@ -6,6 +6,7 @@ import states.Closing;
 import states.FirstPerson;
 import states.Game;
 import states.Menu;
+import states.ModelTest;
 import states.States;
 import states.ThreeDeeTest;
 import world.BGround;
@@ -51,6 +52,9 @@ public class CSGame {
 			case Closing:
 				Closing.loop();
 				break;
+				
+			case ModelTest:
+				ModelTest.main();
 			}
 		}
 

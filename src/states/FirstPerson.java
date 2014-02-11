@@ -3,6 +3,8 @@ package states;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.util.glu.GLU.gluPerspective;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.FloatBuffer;
 import java.util.logging.Level;
@@ -22,7 +24,9 @@ import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 import org.newdawn.slick.util.ResourceLoader;
 
-
+import render.Face;
+import render.Model;
+import render.OBJLoader;
 import utils.Colour;
 
 
@@ -52,7 +56,7 @@ public class FirstPerson {
 	private static Texture texture;
 	private static String textureLocation;
 	//GL Display Lists
-	//private static int objectDisplayList;
+	private static int objectDisplayList;
 	private static int objectDisplayTest;
 	private static int floorTexture;
 	private static int wallDisplayList;
@@ -73,6 +77,7 @@ public class FirstPerson {
 	    private static int walkingSpeed = 10;
 	    /** Defines the mouse speed. */
 	    private static int mouseSpeed = 2;
+		private static int glassDisplayList;
 	    /** Defines if the application utilizes vertical synchronization (eliminates screen tearing; caps fps to 60fps) */
 	    private static final int maxLookUp = 85;
 	    /** Defines the minimum angle at which the player can look down. */
@@ -108,6 +113,8 @@ public class FirstPerson {
             glFogf(GL_FOG_START, fogNear);
             glFogf(GL_FOG_END, fogFar);
             glFogf(GL_FOG_DENSITY, 0.001f);
+            
+        setUpDisplayLists();
             
                 
         ceilingDisplayList = glGenLists(1);
@@ -192,43 +199,7 @@ public class FirstPerson {
         glEndList();
         glColor4f(1, 1, 1, 1);
         
-//        objectDisplayList = glGenLists(1);
-//        glNewList(objectDisplayList, GL_COMPILE);
-//        {
-//            double topPoint = 0.75;
-//            glBegin(GL_TRIANGLES);
-//	            glColor4f(1, 1, 0, 1f);
-//	            glVertex3d(0, topPoint, -5);
-//	            glColor4f(0, 0, 1, 1f);
-//	            glVertex3d(-1, -0.75, -4);
-//	            glColor4f(0, 0, 1, 1f);
-//	            glVertex3d(1, -.75, -4);
-//	
-//	            glColor4f(1, 1, 0, 1f);
-//	            glVertex3d(0, topPoint, -5);
-//	            glColor4f(0, 0, 1, 1f);
-//	            glVertex3d(1, -0.75, -4);
-//	            glColor4f(0, 0, 1, 1f);
-//	            glVertex3d(1, -0.75, -6);
-//	
-//	            glColor4f(1, 1, 0, 1f);
-//	            glVertex3d(0, topPoint, -5);
-//	            glColor4f(0, 0, 1, 1f);
-//	            glVertex3d(1, -0.75, -6);
-//	            glColor4f(0, 0, 1, 1f);
-//	            glVertex3d(-1, -.75, -6);
-//	
-//	            glColor4f(1, 1, 0, 1f);
-//	            glVertex3d(0, topPoint, -5);
-//	            glColor4f(0, 0, 1, 1f);
-//	            glVertex3d(-1, -0.75, -6);
-//	            glColor4f(0, 0, 1, 1f);
-//	            glVertex3d(-1, -.75, -4);
-//
-//            glEnd();
-//            glColor4f(1, 1, 1, 1);
-//        }
-//        glEndList();
+
         
         objectDisplayTest = glGenLists(1);
         glNewList(objectDisplayTest, GL_COMPILE);
@@ -277,13 +248,55 @@ public class FirstPerson {
 
 	}
 	
+	private static void setUpDisplayLists() {
+        glassDisplayList = glGenLists(1);
+        glNewList(glassDisplayList, GL_COMPILE);
+        {
+            Model m = null;
+            try {
+                m = OBJLoader.loadModel(new File("bin/resources/models/Glass.obj"));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                Display.destroy();
+                System.exit(1);
+            } catch (IOException e) {
+                e.printStackTrace();
+                Display.destroy();
+                System.exit(1);
+            }
+            
+            glBegin(GL_TRIANGLES);
+            for (Face face : m.faces) {
+                Vector3f n1 = m.normals.get((int)face.normal.x- 1);
+                glNormal3f(n1.x, n1.y, n1.z);
+                Vector3f v1 = m.vertices.get((int) face.vertex.x - 1);
+                glVertex3f(v1.x, v1.y, v1.z);
+                
+                Vector3f n2 = m.normals.get((int)face.normal.y- 1);
+                glNormal3f(n2.x, n2.y, n2.z);
+                Vector3f v2 = m.vertices.get((int) face.vertex.y - 1);
+                glVertex3f(v2.x, v2.y, v2.z);
+                
+                Vector3f n3 = m.normals.get((int)face.normal.z- 1);
+                glNormal3f(n3.x, n3.y, n3.z);
+                Vector3f v3 = m.vertices.get((int) face.vertex.z - 1);
+                glVertex3f(v3.x, v3.y, v3.z);
+            }
+            glEnd();
+        }
+        glEndList();
+    }
+	
+	private static void render() {
+	    glLoadIdentity();
+	    
+	}
+
 	public static void loop() {
 		
 		while (CSGame.state == States.FirstPerson) {
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			
-			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-			
+						
 			int delta = getDelta();
 			glBindTexture(GL_TEXTURE_2D, floorTexture);
 			
@@ -292,11 +305,14 @@ public class FirstPerson {
 			glCallList(floorDisplayList);
 			glCallList(ceilingDisplayList);
 			glCallList(wallDisplayList);
+			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		    glCallList(glassDisplayList);
 			glEnable(GL_DEPTH_TEST);
 			glDisable(GL_CULL_FACE);
 			glBindTexture(GL_TEXTURE_2D, 0);
-			//glCallList(objectDisplayList);
+			glCallList(objectDisplayList);
 			glCallList(objectDisplayTest);
+			
 			
 			glLoadIdentity();
 			glRotatef(rotation.x, 1, 0, 0);
@@ -532,7 +548,7 @@ public class FirstPerson {
         glDeleteLists(floorDisplayList, 1);
         glDeleteLists(ceilingDisplayList, 1);
         glDeleteLists(wallDisplayList, 1);
-       // glDeleteLists(objectDisplayList, 1);
+        glDeleteLists(objectDisplayList, 1);
         glDeleteLists(objectDisplayTest, 1);
         Display.destroy();
         System.exit(0);

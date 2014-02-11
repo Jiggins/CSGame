@@ -21,7 +21,7 @@ public class ModelTest {
 
 	    private static final String MODEL_LOCATION = "bin/resources/models/Glass.obj";
 
-	    public static void main(String[] args) {
+	    public static void main() {
 	        setUpDisplay();
 	        setUpDisplayLists();
 	        while (!Display.isCloseRequested()) {
