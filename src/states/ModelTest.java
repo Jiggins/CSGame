@@ -20,7 +20,8 @@ public class ModelTest {
 	    private static int glassDisplayList;
 
 	    private static final String MODEL_LOCATION = "bin/resources/models/Glass.obj";
-
+	    
+	    
 	    public static void main() {
 	        setUpDisplay();
 	        setUpDisplayLists();
@@ -32,11 +33,14 @@ public class ModelTest {
 	        cleanUp();
 	        System.exit(0);
 	    }
-
+	    
+	    
 	    private static void setUpDisplayLists() {
 	        glassDisplayList = glGenLists(1);
 	        glNewList(glassDisplayList, GL_COMPILE);
 	        {
+	        	
+	        	//loads the model file
 	            Model m = null;
 	            try {
 	                m = OBJLoader.loadModel(new File(MODEL_LOCATION));
@@ -50,6 +54,7 @@ public class ModelTest {
 	                System.exit(1);
 	            }
 	            
+	            //creates the model, 
 	            glBegin(GL_TRIANGLES);
 	            for (Face face : m.faces) {
 	                Vector3f n1 = m.normals.get((int)face.normal.x- 1);
@@ -77,7 +82,7 @@ public class ModelTest {
 	        glDeleteLists(glassDisplayList, 1);
 	        Display.destroy();
 	    }
-
+	    
 	    private static void render() {
 	        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	        glLoadIdentity();
@@ -85,7 +90,8 @@ public class ModelTest {
 	        glCallList(glassDisplayList);
 	    }
 
-
+	    
+	    
 	    private static void setUpDisplay() {
 	        try {
 	            Display.setDisplayMode(new DisplayMode(640, 480));
