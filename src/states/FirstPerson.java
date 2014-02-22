@@ -23,8 +23,6 @@ import org.lwjgl.util.vector.Vector3f;
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 import org.newdawn.slick.util.ResourceLoader;
-
-import render.Face;
 import render.Model;
 import render.OBJLoader;
 import utils.Colour;
@@ -248,49 +246,42 @@ public class FirstPerson {
 
 	}
 	
-	private static void setUpDisplayLists() {
-        glassDisplayList = glGenLists(1);
-        glNewList(glassDisplayList, GL_COMPILE);
-        {
-            Model m = null;
-            try {
-                m = OBJLoader.loadModel(new File("bin/resources/models/Glass.obj"));
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-                Display.destroy();
-                System.exit(1);
-            } catch (IOException e) {
-                e.printStackTrace();
-                Display.destroy();
-                System.exit(1);
-            }
-            
-            glBegin(GL_TRIANGLES);
-            for (Face face : m.faces) {
-                Vector3f n1 = m.normals.get((int)face.normal.x- 1);
-                glNormal3f(n1.x, n1.y, n1.z);
-                Vector3f v1 = m.vertices.get((int) face.vertex.x - 1);
-                glVertex3f(v1.x, v1.y, v1.z);
-                
-                Vector3f n2 = m.normals.get((int)face.normal.y- 1);
-                glNormal3f(n2.x, n2.y, n2.z);
-                Vector3f v2 = m.vertices.get((int) face.vertex.y - 1);
-                glVertex3f(v2.x, v2.y, v2.z);
-                
-                Vector3f n3 = m.normals.get((int)face.normal.z- 1);
-                glNormal3f(n3.x, n3.y, n3.z);
-                Vector3f v3 = m.vertices.get((int) face.vertex.z - 1);
-                glVertex3f(v3.x, v3.y, v3.z);
-            }
-            glEnd();
-        }
-        glEndList();
+		private static void setUpDisplayLists() {
+	        glassDisplayList = glGenLists(1);
+	        glNewList(glassDisplayList, GL_COMPILE);
+	        {
+	            Model m = null;
+	            try {
+	                m = OBJLoader.loadTexturedModel(new File("bin/resources/models/Glass.obj"));
+	            } catch (FileNotFoundException e) {
+	                e.printStackTrace();
+	                Display.destroy();
+	                System.exit(1);
+	            } catch (IOException e) {
+	                e.printStackTrace();
+	                Display.destroy();
+	                System.exit(1);
+	            }
+	            glBegin(GL_TRIANGLES);
+	            for (Model.Face face : m.getFaces()) {
+	                Vector3f n1 = m.getNormals().get(face.getNormalIndices()[0] - 1);
+	                glNormal3f(n1.x, n1.y, n1.z);
+	                Vector3f v1 = m.getVertices().get(face.getVertexIndices()[0] - 1);
+	                glVertex3f(v1.x, v1.y, v1.z);
+	                Vector3f n2 = m.getNormals().get(face.getNormalIndices()[1] - 1);
+	                glNormal3f(n2.x, n2.y, n2.z);
+	                Vector3f v2 = m.getVertices().get(face.getVertexIndices()[1] - 1);
+	                glVertex3f(v2.x, v2.y, v2.z);
+	                Vector3f n3 = m.getNormals().get(face.getNormalIndices()[2] - 1);
+	                glNormal3f(n3.x, n3.y, n3.z);
+	                Vector3f v3 = m.getVertices().get(face.getVertexIndices()[2] - 1);
+	                glVertex3f(v3.x, v3.y, v3.z);
+	            }
+	            glEnd();
+	        }
+	        glEndList();
     }
 	
-	private static void render() {
-	    glLoadIdentity();
-	    
-	}
 
 	public static void loop() {
 		
