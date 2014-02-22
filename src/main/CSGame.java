@@ -15,7 +15,7 @@ public class CSGame {
 	
 	public static BGround currentBackground;
 	
-	public static States state = States.FirstPerson;
+	public static States state = States.Game;
 
 	public static void main(String [] args) {
 		display.CreateDisplay.frame();
@@ -35,6 +35,7 @@ public class CSGame {
 			case Game:
 				Game.startup();
 				Game.loop();
+				Game.stop();
 				break;
 				
 			case ThreeDeeTest:
