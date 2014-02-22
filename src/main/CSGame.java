@@ -1,7 +1,6 @@
 package main;
 import org.lwjgl.opengl.Display;
 
-import render.Model;
 import states.Closing;
 import states.FirstPerson;
 import states.Game;
@@ -15,7 +14,7 @@ public class CSGame {
 	
 	public static BGround currentBackground;
 	
-	public static States state = States.FirstPerson;
+	public static States state = States.ModelTest;
 
 	public static void main(String [] args) {
 		display.CreateDisplay.frame();
