@@ -65,12 +65,7 @@ public class ModelTest {
     public static void main() {
 
         setUpDisplayLists();
-        while (!Display.isCloseRequested()) {
-            render();
-            checkInput();
-            Display.update();
-            Display.sync(60);
-        }
+            loop();
         cleanUp();
         System.exit(0);
     }
@@ -137,7 +132,7 @@ public static void loop() {
 		while (CSGame.state == States.ModelTest) {
 			
 			render();
-            checkInput();
+//            checkInput();
             Display.update();
             Display.sync(60);
 						
@@ -296,6 +291,7 @@ public static void loop() {
 					Mouse.setGrabbed(false);
 				}
 			}
+			
 			while (Keyboard.next()) {
 				if (Keyboard.isKeyDown(Keyboard.KEY_C)) {
 					position = new Vector3f(0, 0, 0);

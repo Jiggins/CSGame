@@ -1,5 +1,7 @@
 package states;
 
+import org.lwjgl.opengl.Display;
+
 import main.CSGame;
 import world.rooms.CallanLab3;
 import world.rooms.Room;
@@ -8,7 +10,7 @@ import world.rooms.Room.Rooms;
 
 public class Game {
 	
-	public static BGround main = new BGround("MissingBackground");
+//	public static BGround main = new BGround("MissingBackground");
 //	private static Character player;
 	public static Rooms room = Rooms.Callan_Corridor;
 	public static Room currentRoom;
@@ -29,6 +31,10 @@ public class Game {
 	public static void loop(){
 		while (CSGame.state == States.Game) {
 			currentRoom.loop();
+		}
+
+		if (Display.isCloseRequested()) {
+			CSGame.state = States.Closing;
 		}
 	}
 

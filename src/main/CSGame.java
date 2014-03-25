@@ -15,7 +15,7 @@ public class CSGame {
 	
 	public static BGround currentBackground;
 	
-	public static States state = States.Game;
+	public static States state = States.FirstPerson;
 
 	public static void main(String [] args) {
 		display.CreateDisplay.frame();
