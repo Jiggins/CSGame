@@ -42,3 +42,4 @@ lwjgl-source-2.9.0/
 #########
 *.sublime-workspace
 
+/bin

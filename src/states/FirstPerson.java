@@ -4,10 +4,12 @@ import static org.lwjgl.opengl.GL11.GL_ALPHA_TEST;
 import static org.lwjgl.opengl.GL11.GL_BACK;
 import static org.lwjgl.opengl.GL11.GL_BLEND;
 import static org.lwjgl.opengl.GL11.GL_COLOR_BUFFER_BIT;
+import static org.lwjgl.opengl.GL11.GL_COLOR_MATERIAL;
 import static org.lwjgl.opengl.GL11.GL_COMPILE;
 import static org.lwjgl.opengl.GL11.GL_CULL_FACE;
 import static org.lwjgl.opengl.GL11.GL_DEPTH_BUFFER_BIT;
 import static org.lwjgl.opengl.GL11.GL_DEPTH_TEST;
+import static org.lwjgl.opengl.GL11.GL_DIFFUSE;
 import static org.lwjgl.opengl.GL11.GL_FOG;
 import static org.lwjgl.opengl.GL11.GL_FOG_COLOR;
 import static org.lwjgl.opengl.GL11.GL_FOG_DENSITY;
@@ -15,15 +17,19 @@ import static org.lwjgl.opengl.GL11.GL_FOG_END;
 import static org.lwjgl.opengl.GL11.GL_FOG_HINT;
 import static org.lwjgl.opengl.GL11.GL_FOG_MODE;
 import static org.lwjgl.opengl.GL11.GL_FOG_START;
-import static org.lwjgl.opengl.GL11.GL_FRONT_AND_BACK;
-import static org.lwjgl.opengl.GL11.GL_LINE;
+import static org.lwjgl.opengl.GL11.GL_FRONT;
+import static org.lwjgl.opengl.GL11.GL_LIGHT0;
+import static org.lwjgl.opengl.GL11.GL_LIGHTING;
+import static org.lwjgl.opengl.GL11.GL_LIGHT_MODEL_AMBIENT;
 import static org.lwjgl.opengl.GL11.GL_LINEAR;
 import static org.lwjgl.opengl.GL11.GL_MODELVIEW;
 import static org.lwjgl.opengl.GL11.GL_NICEST;
 import static org.lwjgl.opengl.GL11.GL_ONE_MINUS_SRC_ALPHA;
 import static org.lwjgl.opengl.GL11.GL_PERSPECTIVE_CORRECTION_HINT;
+import static org.lwjgl.opengl.GL11.GL_POSITION;
 import static org.lwjgl.opengl.GL11.GL_PROJECTION;
 import static org.lwjgl.opengl.GL11.GL_QUADS;
+import static org.lwjgl.opengl.GL11.GL_SMOOTH;
 import static org.lwjgl.opengl.GL11.GL_SRC_ALPHA;
 import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
 import static org.lwjgl.opengl.GL11.GL_TRIANGLES;
@@ -34,6 +40,7 @@ import static org.lwjgl.opengl.GL11.glCallList;
 import static org.lwjgl.opengl.GL11.glClear;
 import static org.lwjgl.opengl.GL11.glClearColor;
 import static org.lwjgl.opengl.GL11.glColor4f;
+import static org.lwjgl.opengl.GL11.glColorMaterial;
 import static org.lwjgl.opengl.GL11.glCullFace;
 import static org.lwjgl.opengl.GL11.glDeleteLists;
 import static org.lwjgl.opengl.GL11.glDeleteTextures;
@@ -46,12 +53,14 @@ import static org.lwjgl.opengl.GL11.glFogf;
 import static org.lwjgl.opengl.GL11.glFogi;
 import static org.lwjgl.opengl.GL11.glGenLists;
 import static org.lwjgl.opengl.GL11.glHint;
+import static org.lwjgl.opengl.GL11.glLight;
+import static org.lwjgl.opengl.GL11.glLightModel;
 import static org.lwjgl.opengl.GL11.glLoadIdentity;
 import static org.lwjgl.opengl.GL11.glMatrixMode;
 import static org.lwjgl.opengl.GL11.glNewList;
 import static org.lwjgl.opengl.GL11.glNormal3f;
-import static org.lwjgl.opengl.GL11.glPolygonMode;
 import static org.lwjgl.opengl.GL11.glRotatef;
+import static org.lwjgl.opengl.GL11.glShadeModel;
 import static org.lwjgl.opengl.GL11.glTranslatef;
 import static org.lwjgl.opengl.GL11.glVertex3d;
 import static org.lwjgl.opengl.GL11.glVertex3f;
@@ -82,6 +91,8 @@ import org.newdawn.slick.util.ResourceLoader;
 import render.Model;
 import render.OBJLoader;
 import utils.Colour;
+import org.lwjgl.opengl.GL11;
+
 
 
 public class FirstPerson {
@@ -115,6 +126,7 @@ public class FirstPerson {
 	private static int floorTexture;
 	private static int wallDisplayList;
 	private static int ceilingDisplayList;
+	private static float[] lightPosition = {-2.19f, 1.36f, 11.45f, 1f};
 	
 	 private static Vector3f position = new Vector3f(0, 0, 0);
 	    /**
@@ -139,7 +151,7 @@ public class FirstPerson {
     
 	public static void startup() {
 		setTextureLocation("MissingBackground");
-		
+		setUpLighting();
 		glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
         gluPerspective(fov, (float) Display.getWidth() / (float) Display.getHeight(), zNear, zFar);
@@ -301,7 +313,6 @@ public class FirstPerson {
         
 
 	}
-	
 		private static void setUpDisplayLists() {
 	        glassDisplayList = glGenLists(1);
 	        glNewList(glassDisplayList, GL_COMPILE);
@@ -318,6 +329,8 @@ public class FirstPerson {
 	                Display.destroy();
 	                System.exit(1);
 	            }
+	            
+	            glColor4f(2f, 1f, 1f,1);
 	            glBegin(GL_TRIANGLES);
 	            for (Model.Face face : m.getFaces()) {
 	                Vector3f n1 = m.getNormals().get(face.getNormalIndices()[0] - 1);
@@ -337,6 +350,29 @@ public class FirstPerson {
 	        }
 	        glEndList();
     }
+		
+		
+	//sets up lighting
+	private static void setUpLighting() {
+	        glShadeModel(GL_SMOOTH);
+	        glEnable(GL_DEPTH_TEST);
+	        glEnable(GL_LIGHTING);
+	        glEnable(GL_LIGHT0);
+	        //light intensity R G B intensity
+	        glLightModel(GL_LIGHT_MODEL_AMBIENT, asFlippedFloatBuffer(new float[]{0.4f, 0.4f, .02f, 1f}));
+	        glLight(GL_LIGHT0, GL_POSITION, asFlippedFloatBuffer(new float[]{0, 0, 0, 1}));
+	        glEnable(GL_CULL_FACE);
+	        glCullFace(GL_BACK);
+	        glEnable(GL_COLOR_MATERIAL);
+	        glColorMaterial(GL_FRONT, GL_DIFFUSE);
+	    }
+	
+	public static FloatBuffer asFlippedFloatBuffer(float... values) {
+        FloatBuffer buffer = BufferUtils.createFloatBuffer(values.length);
+        buffer.put(values);
+        buffer.flip();
+        return buffer;
+    }
 	
 
 	public static void loop() {
@@ -347,12 +383,13 @@ public class FirstPerson {
 			int delta = getDelta();
 			glBindTexture(GL_TEXTURE_2D, floorTexture);
 			
+			
 			glEnable(GL_CULL_FACE);
 			glDisable(GL_DEPTH_TEST);
 			glCallList(floorDisplayList);
 			glCallList(ceilingDisplayList);
 			glCallList(wallDisplayList);
-			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+//			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 		    glCallList(glassDisplayList);
 			glEnable(GL_DEPTH_TEST);
 			glDisable(GL_CULL_FACE);
@@ -386,8 +423,7 @@ public class FirstPerson {
 				}
 			}
 						
-			// If you're looking for a challenge / something interesting, be sure to have a look at this comment:
-			// http://www.youtube.com/watch?v=OO_yNzAuDe4&lc=2e3e-Xz131-fklyBuY6e-xYiWWBv379j7BmQpZRysjc
+			
 			boolean keyUp = Keyboard.isKeyDown(Keyboard.KEY_UP) || Keyboard.isKeyDown(Keyboard.KEY_W);
 			boolean keyDown = Keyboard.isKeyDown(Keyboard.KEY_DOWN) || Keyboard.isKeyDown(Keyboard.KEY_S);
 			boolean keyLeft = Keyboard.isKeyDown(Keyboard.KEY_LEFT) || Keyboard.isKeyDown(Keyboard.KEY_A);
