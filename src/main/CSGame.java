@@ -1,7 +1,6 @@
 package main;
 import org.lwjgl.opengl.Display;
 
-import render.Model;
 import states.Closing;
 import states.FirstPerson;
 import states.Game;

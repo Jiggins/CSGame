@@ -14,6 +14,7 @@ import render.Model;
 import render.OBJLoader;
 
 
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -33,11 +34,11 @@ public class ModelTest {
 
 
 		//GL Display Lists
-		private static int objectDisplayList;
-		private static int objectDisplayTest;
-		private static int floorTexture;
-		private static int wallDisplayList;
-		private static int ceilingDisplayList;
+//		private static int objectDisplayList;
+//		private static int objectDisplayTest;
+//		private static int floorTexture;
+//		private static int wallDisplayList;
+//		private static int ceilingDisplayList;
 		
 		 private static Vector3f position = new Vector3f(0, 0, 0);
 		    /**
@@ -47,7 +48,7 @@ public class ModelTest {
 		     * ahead, -90 is straight up, and 90 is straight down. The value must be between (including) -90 and 90.
 		     */
 		    private static Vector3f rotation = new Vector3f(0, 0, 0);
-			private static int floorDisplayList;
+//			private static int floorDisplayList;
 			private static long lastFrame;
 			
 			/** Defines the walking speed, where 10 is the standard. */
@@ -106,7 +107,8 @@ public class ModelTest {
         glEndList();
     }
 
-    private static void checkInput() {
+    @SuppressWarnings("unused")
+	private static void checkInput() {
         if (Mouse.isButtonDown(0)) {
             Mouse.setGrabbed(true);
         } else if (Mouse.isButtonDown(1)) {

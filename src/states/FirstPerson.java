@@ -91,7 +91,6 @@ import org.newdawn.slick.util.ResourceLoader;
 import render.Model;
 import render.OBJLoader;
 import utils.Colour;
-import org.lwjgl.opengl.GL11;
 
 
 
@@ -126,9 +125,7 @@ public class FirstPerson {
 	private static int floorTexture;
 	private static int wallDisplayList;
 	private static int ceilingDisplayList;
-	private static float[] lightPosition = {-2.19f, 1.36f, 11.45f, 1f};
-	
-	 private static Vector3f position = new Vector3f(0, 0, 0);
+	private static Vector3f position = new Vector3f(0, 0, 0);
 	    /**
 	     * The rotation of the axis (where to the player looks). The X component stands for the rotation along the x-axis,
 	     * where 0 is dead ahead, 180 is backwards, and 360 is automatically set to 0 (dead ahead). The value must be between
