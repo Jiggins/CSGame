@@ -15,42 +15,32 @@ import entity.Entity;
 public class Room {
 	
 	private float fov = 70f;
+	
 	private float zNear = 25f;
 	private float zFar = 35f;
+	
 	private int wallDisplayList;
+	/**List of all NPC in room**/
 	public ArrayList<Entity> entities = new ArrayList<Entity>();
 	/** List of all non-moving objects - glDisplayLists */
 	private ArrayList<Integer> displayLists = new ArrayList<Integer>();
+	
 	private float width;
 	private float depth;
 	private float height;
+	
 	private Colour fogColour;
 	private float fogNear;
 	private float fogFar;
 	
-	/*
-	 *  Each type of room extends Room
-	 *  
-	 *  Need:
-	 *  List of entities - arraylist
-	 *  Background
-	 *  boundaries - maybe
-	 */
-	public enum Rooms {
-		Callan_Lab_3, Callan_Lab_4, Callan_Corridor;
-	}
-	
-	public Room(float length, float width, float height){
-		this.width = width;
-		this.height = height;
-		this.depth = length;
-		fogColour = Colour.WHITE;
+	public Room(int id){
+		//load info in from json file
 	}
 	
 	/**
 	 * Called when Room is Entered
-	 * Create Entities,
-	 * Create
+	 * Initialise,
+	 * Set up projection modes and fog
 	 */
 	public void init() {
 		glMatrixMode(GL_PROJECTION);
@@ -59,7 +49,7 @@ public class Room {
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
 
-		 glEnable(GL_DEPTH_TEST);
+		glEnable(GL_DEPTH_TEST);
 		glEnable(GL_TEXTURE_2D);
 		glEnable(GL_BLEND);
 		glEnable(GL_ALPHA_TEST);
@@ -69,17 +59,18 @@ public class Room {
 		glCullFace(GL_BACK);
 		glEnable(GL_FOG);
 		
-			FloatBuffer fogColours = BufferUtils.createFloatBuffer(4);
-			fogColours.put(new float[]{Colour.RED.red, Colour.RED.green, Colour.RED.blue, 1f});
-			glClearColor(fogColour.red, fogColour.green, fogColour.blue, 1f);
-			fogColours.flip();
-			glFog(GL_FOG_COLOR, fogColours);
-			glFogi(GL_FOG_MODE, GL_LINEAR);
-			glHint(GL_FOG_HINT, GL_NICEST);
-			glFogf(GL_FOG_START, fogNear);
-			glFogf(GL_FOG_END, fogFar);
-			glFogf(GL_FOG_DENSITY, 0.001f);
-			
+		FloatBuffer fogColours = BufferUtils.createFloatBuffer(4);
+		fogColours.put(new float[]{Colour.RED.red, Colour.RED.green, Colour.RED.blue, 1f});
+		glClearColor(fogColour.red, fogColour.green, fogColour.blue, 1f);
+		fogColours.flip();
+		glFog(GL_FOG_COLOR, fogColours);
+		glFogi(GL_FOG_MODE, GL_LINEAR);
+		glHint(GL_FOG_HINT, GL_NICEST);
+		glFogf(GL_FOG_START, fogNear);
+		glFogf(GL_FOG_END, fogFar);
+		glFogf(GL_FOG_DENSITY, 0.001f);
+		
+		//Create entities
 		setUpDisplayLists();
 	}
 	
@@ -113,6 +104,7 @@ public class Room {
 		return null;
 	}
 
+	//sets up walls
 	private void setUpDisplayLists() {
 		wallDisplayList = glGenLists(1);
 		glNewList(wallDisplayList, GL_COMPILE);
@@ -158,7 +150,7 @@ public class Room {
 
 	/**
 	 * Renders all non-moving objects
-	 * Todo:  add non-moving objects.
+	 * TODO:  add non-moving objects.
 	 * Override to add objects for rendering
 	 */
 	public void renderStaticObjects() {
