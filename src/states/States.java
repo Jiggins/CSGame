@@ -1,6 +1,6 @@
 package states;
 
 public enum States {
-	Main_Menu, Game, Closing, ThreeDeeTest, FirstPerson, ModelTest;
+	Main_Menu, Closing, ThreeDeeTest, FirstPerson, ModelTest;
 }
 

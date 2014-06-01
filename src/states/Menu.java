@@ -19,7 +19,6 @@ public class Menu {
 		CSGame.currentBackground = menu;
 		CSGame.currentBackground.loadTexture();
 
-		new StateButton(490, 16, States.Game);
 		new StateButton(490, 64, States.Closing);
 		new StateButton(490, 112, Colour.BLUE, States.ThreeDeeTest);
 		new StateButton(490, 160, Colour.BLUE, States.FirstPerson);
