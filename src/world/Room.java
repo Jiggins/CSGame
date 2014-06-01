@@ -99,10 +99,6 @@ public class Room {
 	public ArrayList<Entity> getEntities() {
 		return entities;
 	}
-	
-	public BGround getBGround() {
-		return null;
-	}
 
 	//sets up walls
 	private void setUpDisplayLists() {

@@ -7,12 +7,10 @@ import states.Menu;
 import states.ModelTest;
 import states.States;
 import states.ThreeDeeTest;
-import world.BGround;
+
 
 public class CSGame {
-	
-	public static BGround currentBackground;
-	
+		
 	public static States state = States.FirstPerson;
 
 	public static void main(String [] args) {

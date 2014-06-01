@@ -23,7 +23,6 @@ public class Character extends Entity{
 		@Override
 		public void update() {
 			
-			this.render();
 		
 			if (Keyboard.isKeyDown(Keyboard.KEY_LEFT)) {
 				this.moveToLeft();

@@ -4,13 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import org.lwjgl.opengl.Display;
-import org.lwjgl.opengl.GL11;
-import org.newdawn.slick.Color;
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 import org.newdawn.slick.util.ResourceLoader;
-
-import utils.Colour;
 
 /**
  * Entity Object
@@ -72,7 +68,7 @@ public abstract class Entity {
 	 * Called every tick
 	 */
 	public void update() {
-		render();
+		
 	}
 	
 	/**
@@ -185,160 +181,5 @@ public abstract class Entity {
 	public void setPosition(int x, int y){
 		this.x = x;
 		this.y = y;
-	}
-	
-	/**
-	 * Renders the Entity on screen
-	 */
-	public void render(){ 
-
-		Color.white.bind();
-		texture.bind();
-		
-		GL11.glBegin(GL11.GL_QUADS);
-		{
-			GL11.glTexCoord2f(0,0);
-			GL11.glVertex2f(x,y);
-			GL11.glTexCoord2f(1,0);
-			GL11.glVertex2f(x+width,y);
-			GL11.glTexCoord2f(1,1);
-			GL11.glVertex2f(x+width,y+height);
-			GL11.glTexCoord2f(0,1);
-			GL11.glVertex2f(x,y+height);
-		}
-		
-		GL11.glEnd();
-		GL11.glFlush();
-	}
-	
-	/**
-	 * Renders the Entity with a Texture overlaid with colour 
-	 * @param colour
-	 */
-	public void render(Colour colour) {
-		Color.white.bind();
-		texture.bind();
-		
-		GL11.glBegin(GL11.GL_QUADS);
-		{
-			GL11.glTexCoord2f(0,0);
-			GL11.glColor3f(colour.red, colour.green, colour.blue);
-			GL11.glVertex2f(x,y);
-			GL11.glTexCoord2f(1,0);
-			GL11.glColor3f(colour.red, colour.green, colour.blue);
-			GL11.glVertex2f(x+width,y);
-			GL11.glTexCoord2f(1,1);
-			GL11.glColor3f(colour.red, colour.green, colour.blue);
-			GL11.glVertex2f(x+width,y+height);
-			GL11.glTexCoord2f(0,1);
-			GL11.glColor3f(colour.red, colour.green, colour.blue);
-			GL11.glVertex2f(x,y+height);
-		}
-		
-		GL11.glEnd();
-		GL11.glFlush();
-	}
-	
-	/**
-	 * Renders the Entity on screen to the given size.
-	 * @param width, height 
-	 */
-	public void render(int width, int height) {
-		GL11.glClearColor(0f, 0f, 0f, 0f);
-		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
-
-		Color.white.bind();
-		texture.bind();
-
-		//create shape for image to sit on
-		GL11.glBegin(GL11.GL_QUADS);
-
-			GL11.glTexCoord2f(0,0);
-			GL11.glVertex2f(x,y);
-			GL11.glTexCoord2f(1,0);
-			GL11.glVertex2f(x+width,y);
-			GL11.glTexCoord2f(1,1);
-			GL11.glVertex2f(x+width,y+height);
-			GL11.glTexCoord2f(0,1);
-			GL11.glVertex2f(x,y+height);
-
-		GL11.glEnd();	
-	}
-	
-	public void render(float width, float height) {
-		GL11.glClearColor(0f, 0f, 0f, 0f);
-		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
-
-		Color.white.bind();
-		texture.bind();
-
-		//create shape for image to sit on
-		GL11.glBegin(GL11.GL_QUADS);
-
-			GL11.glTexCoord2f(0,0);
-			GL11.glVertex2f(x,y);
-			GL11.glTexCoord2f(1,0);
-			GL11.glVertex2f(x+width,y);
-			GL11.glTexCoord2f(1,1);
-			GL11.glVertex2f(x+width,y+height);
-			GL11.glTexCoord2f(0,1);
-			GL11.glVertex2f(x,y+height);
-
-		GL11.glEnd();	
-	}
-	
-	public void render(float x, float y, float z, float w) {
-		GL11.glClearColor(0f, 0f, 0f, 0f);
-		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
-
-		Color.white.bind();
-		texture.bind();
-
-		//create shape for image to sit on
-		GL11.glBegin(GL11.GL_QUADS);
-
-			GL11.glTexCoord2f(0,0);
-			GL11.glVertex2f(x,y);
-			GL11.glTexCoord2f(1,0);
-			GL11.glVertex2f(z,y);
-			GL11.glTexCoord2f(1,1);
-			GL11.glVertex2f(z,w);
-			GL11.glTexCoord2f(0,1);
-			GL11.glVertex2f(x,w);
-
-		GL11.glEnd();
-	}
-	
-	/**
-	 * Zoom to new size
-	 * @param x
-	 * @param y
-	 */
-	public void zoomTo(float x, float y) {
-		GL11.glClearColor(0f, 0f, 0f, 0f);
-		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
-		
-		if (getWidth() == x && getWidth() == y) {
-			render();
-			return;
-		}
-		
-		float widthRatio;
-		float heightRatio;	
-		
-		Color.white.bind();
-		texture.bind();
-		
-		for (int i = 100000; i >= 1; i--) {
-			widthRatio	= Math.abs(getWidth()	- x)/i;
-			heightRatio	= Math.abs(getHeight()	- y)/i;
-			
-			
-			this.width	= x + widthRatio;
-			this.height	= y + heightRatio;
-			
-			render(this.width, this.height);			
-		}
-		GL11.glEnd();
 	}
 }

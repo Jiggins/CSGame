@@ -1,7 +1,5 @@
 package states;
 
-import main.CSGame;
-
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 
@@ -14,9 +12,7 @@ public class Closing {
 		float y = 0;
 		
 		while(x < 100 /* !start.click() , start button not pressed*/){
-			
-			CSGame.currentBackground.render();
-			
+						
 			GL11.glBegin(GL11.GL_QUADS);
 				GL11.glEnable(GL11.GL_BLEND);
 				
