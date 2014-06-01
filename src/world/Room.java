@@ -146,7 +146,6 @@ public class Room {
 
 	/**
 	 * Renders all non-moving objects
-	 * TODO:  add non-moving objects.
 	 * Override to add objects for rendering
 	 */
 	public void renderStaticObjects() {
